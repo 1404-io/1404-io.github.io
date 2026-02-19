@@ -15,24 +15,66 @@ import { SITE } from '../lib/constants';
         Start a Conversation
       </h1>
       <p class="text-text-secondary text-lg mt-6 leading-relaxed max-w-xl">
-        One call. That's all it takes to find out what's possible.
+        30 minutes. No pitch deck. We'll learn about your business and tell you what's possible.
       </p>
     </header>
 
-    <!-- Book a Call — Primary CTA -->
-    <div class="mb-16">
-      <a
-        href={SITE.booking}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block bg-copper text-bg px-8 py-4 text-base font-medium tracking-wide hover:bg-copper-bright transition-colors duration-200"
+    <!-- Booking Form -->
+    <form id="booking-form" class="mb-20 space-y-6">
+      <div>
+        <label for="name" class="block text-xs tracking-widest uppercase text-text-muted mb-3">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="w-full bg-bg-surface border border-border text-text-body px-4 py-3 text-base focus:border-copper focus:outline-none transition-colors"
+          placeholder="Your name"
+        />
+      </div>
+
+      <div>
+        <label for="company" class="block text-xs tracking-widest uppercase text-text-muted mb-3">Company</label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          class="w-full bg-bg-surface border border-border text-text-body px-4 py-3 text-base focus:border-copper focus:outline-none transition-colors"
+          placeholder="Company name"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block text-xs tracking-widest uppercase text-text-muted mb-3">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="w-full bg-bg-surface border border-border text-text-body px-4 py-3 text-base focus:border-copper focus:outline-none transition-colors"
+          placeholder="you@company.com"
+        />
+      </div>
+
+      <div>
+        <label for="context" class="block text-xs tracking-widest uppercase text-text-muted mb-3">What should we know?</label>
+        <textarea
+          id="context"
+          name="context"
+          rows="3"
+          class="w-full bg-bg-surface border border-border text-text-body px-4 py-3 text-base focus:border-copper focus:outline-none transition-colors resize-none"
+          placeholder="Company size, industry, what you're looking to solve"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="inline-block bg-copper text-bg px-8 py-4 text-base font-medium tracking-wide hover:bg-copper-bright transition-colors duration-200 cursor-pointer"
       >
-        Book a 30-Minute Call
-      </a>
-      <p class="text-text-muted text-sm mt-4">
-        Pick a time that works. No pitch deck. No sales script.
-      </p>
-    </div>
+        Book a Discovery Call
+      </button>
+      <p id="form-status" class="text-sm text-text-muted mt-2 hidden"></p>
+    </form>
 
     <!-- Or Reach Out Directly -->
     <div class="mb-20 space-y-6">
@@ -90,4 +132,35 @@ import { SITE } from '../lib/constants';
     </div>
 
   </section>
+
+  <script is:inline define:vars={{ email: SITE.email }}>
+    document.getElementById('booking-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const userEmail = document.getElementById('email').value.trim();
+      const context = document.getElementById('context').value.trim();
+
+      const subject = encodeURIComponent(
+        'Discovery Call' + (company ? ' — ' + company : '')
+      );
+
+      const lines = [];
+      lines.push('Name: ' + name);
+      if (company) lines.push('Company: ' + company);
+      lines.push('Email: ' + userEmail);
+      if (context) lines.push('');
+      if (context) lines.push(context);
+      lines.push('');
+      lines.push('---');
+      lines.push('Sent from 1404.io/contact');
+
+      const body = encodeURIComponent(lines.join('\n'));
+      window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
+
+      const status = document.getElementById('form-status');
+      status.textContent = 'Opening your email client. If nothing happens, email ' + email + ' directly.';
+      status.classList.remove('hidden');
+    });
+  </script>
 </PageLayout>
