@@ -1,5 +1,5 @@
 ---
-
+import { SITE } from '../lib/constants';
 ---
 
 <section class="bg-bg-card border-t border-b border-border">
@@ -10,11 +10,21 @@
     <p class="text-text-secondary text-lg mb-10">
       One conversation. That's all it takes.
     </p>
-    <a
-      href="/contact"
-      class="inline-block bg-copper text-bg px-6 py-3 text-sm font-medium tracking-wide hover:bg-copper-bright transition-colors duration-200"
-    >
-      Start a Conversation
-    </a>
+    <div class="flex items-center justify-center gap-8">
+      <a
+        href={SITE.booking}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-copper text-bg px-6 py-3 text-sm font-medium tracking-wide hover:bg-copper-bright transition-colors duration-200"
+      >
+        Book a Call
+      </a>
+      <a
+        href="/contact"
+        class="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
+      >
+        Contact &rarr;
+      </a>
+    </div>
   </div>
 </section>

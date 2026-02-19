@@ -19,10 +19,25 @@ import { SITE } from '../lib/constants';
       </p>
     </header>
 
-    <!-- Contact Info -->
+    <!-- Book a Call — Primary CTA -->
+    <div class="mb-16">
+      <a
+        href={SITE.booking}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-copper text-bg px-8 py-4 text-base font-medium tracking-wide hover:bg-copper-bright transition-colors duration-200"
+      >
+        Book a 30-Minute Call
+      </a>
+      <p class="text-text-muted text-sm mt-4">
+        Pick a time that works. No pitch deck. No sales script.
+      </p>
+    </div>
+
+    <!-- Or Reach Out Directly -->
     <div class="mb-20 space-y-6">
+      <p class="text-xs tracking-widest uppercase text-text-muted mb-3">Or reach out directly</p>
       <div>
-        <p class="text-xs tracking-widest uppercase text-text-muted mb-3">Email</p>
         <a
           href={`mailto:${SITE.email}`}
           class="text-copper text-lg hover:text-copper-bright transition-colors duration-200"
@@ -30,9 +45,7 @@ import { SITE } from '../lib/constants';
           {SITE.email}
         </a>
       </div>
-
       <div>
-        <p class="text-xs tracking-widest uppercase text-text-muted mb-3">Phone</p>
         <a
           href={`tel:${SITE.phone}`}
           class="text-copper text-lg hover:text-copper-bright transition-colors duration-200"
