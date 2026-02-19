@@ -19,7 +19,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 });
 ---
 
-<BaseLayout title={`${title} — 1404`} description={description}>
+<BaseLayout title={`${title} — 1404`} description={description} ogType="article" article={{ publishedTime: date, author }}>
   <Nav />
   <main>
     <article class="max-w-2xl mx-auto px-6 pt-40 pb-24">
