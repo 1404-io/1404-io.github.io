@@ -1,0 +1,56 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+
+const posts = [
+  {
+    title: 'The Gap',
+    description: '96% of construction companies under 100 employees have no technology department. The problem isn\'t software. The problem is talent. And the gap is getting wider.',
+    date: '2026-02-10',
+    slug: 'the-gap',
+  },
+  {
+    title: 'Noah\'s Ark',
+    description: 'AI went from novelty to production tool in two years. The companies building infrastructure now will be at 2-3x efficiency by 2029. The rest won\'t be competitive by 2030.',
+    date: '2026-02-03',
+    slug: 'noahs-ark',
+  },
+  {
+    title: 'The Cheetah',
+    description: 'Give one person a shovel and another an excavator. The difference isn\'t 10x. It\'s a different category. That\'s what technology does to operations.',
+    date: '2026-01-27',
+    slug: 'the-cheetah',
+  },
+];
+---
+
+<PageLayout
+  title="Insights — 1404"
+  description="Stories about technology, construction, and closing the gap."
+>
+  <section class="max-w-3xl mx-auto px-6 pt-40 pb-24 md:pb-32">
+
+    <!-- Header -->
+    <header class="mb-16">
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-text-primary leading-tight">
+        Insights
+      </h1>
+      <p class="text-text-secondary text-lg mt-6 leading-relaxed">
+        Stories about technology, construction, and closing the gap.
+      </p>
+    </header>
+
+    <!-- Posts -->
+    <div>
+      {posts.map((post) => (
+        <BlogCard
+          title={post.title}
+          description={post.description}
+          date={post.date}
+          slug={post.slug}
+        />
+      ))}
+    </div>
+
+  </section>
+</PageLayout>

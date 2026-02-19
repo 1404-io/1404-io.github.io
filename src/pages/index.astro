@@ -1,0 +1,178 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CTABanner from '../components/CTABanner.astro';
+---
+
+<PageLayout
+  title="1404 — Technology for Construction"
+  description="The technology department that construction companies acquire instead of building internally. Fractional CTO, custom software, AI operations."
+>
+  <!-- Hero -->
+  <Hero />
+
+  <!-- The Problem -->
+  <section class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+    <SectionHeading title="The Gap" />
+
+    <p class="text-5xl md:text-7xl font-display text-copper leading-none mb-8">
+      96%
+    </p>
+    <p class="text-text-body text-lg leading-relaxed mb-12">
+      of construction companies under 100 employees have no technology department. Not a bad one. Not a small one. None.
+    </p>
+
+    <p class="text-text-body text-lg leading-relaxed mb-12">
+      The gap isn't software. Every company can buy Procore. The gap is talent. A CTO costs $250K. A dev team costs another $500K. And recruiting technical talent in construction? They go to FAANG. Every time.
+    </p>
+
+    <div class="border-l-2 border-border pl-8 mb-12">
+      <p class="text-xs tracking-widest uppercase text-text-muted mb-6">The Progression</p>
+      <ol class="space-y-4 text-text-secondary list-none">
+        <li class="flex gap-4">
+          <span class="font-mono text-text-muted text-sm w-4 shrink-0">1</span>
+          <span>Paper</span>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-text-muted text-sm w-4 shrink-0">2</span>
+          <span>Spreadsheets</span>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-text-muted text-sm w-4 shrink-0">3</span>
+          <span>SaaS tools</span>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-text-muted text-sm w-4 shrink-0">4</span>
+          <span>Frankenstein stack</span>
+        </li>
+        <li class="flex gap-4 text-text-muted">
+          <span class="font-mono text-sm w-4 shrink-0">5</span>
+          <span>Enterprise + consultants</span>
+        </li>
+        <li class="flex gap-4 text-text-muted">
+          <span class="font-mono text-sm w-4 shrink-0">6</span>
+          <span>Custom systems</span>
+        </li>
+        <li class="flex gap-4 text-text-muted">
+          <span class="font-mono text-sm w-4 shrink-0">7</span>
+          <span>Custom agents</span>
+        </li>
+      </ol>
+    </div>
+
+    <p class="text-text-body text-lg leading-relaxed">
+      Most companies are stuck at 2 through 4. The technology to reach 7 exists today. What doesn't exist is the department to get you there.
+    </p>
+  </section>
+
+  <!-- What We Are -->
+  <section class="border-t border-border">
+    <div class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+      <SectionHeading title="What We Are" />
+
+      <div class="space-y-14">
+        <div>
+          <h3 class="font-display text-2xl text-text-primary mb-4">CTO Leadership</h3>
+          <p class="text-text-body text-base leading-relaxed">
+            Strategy, architecture, technology roadmap. Weekly calls with your team. The person who decides what to build, when to build it, and why. The person who knows when to buy software and when to build it. The person you don't have.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-display text-2xl text-text-primary mb-4">Custom Systems</h3>
+          <p class="text-text-body text-base leading-relaxed">
+            Software built around your operations, not the other way around. Every module connected. Every workflow unified. Not twelve SaaS products duct-taped together with Zapier. One system that knows everything about your business because it was built for your business.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-display text-2xl text-text-primary mb-4">AI Operations</h3>
+          <p class="text-text-body text-base leading-relaxed">
+            Agents that monitor your business 24 hours a day. Automated checks every 30 minutes. Natural language interface your team actually uses. Persistent memory that compounds. Month 1, the system is learning. Month 12, it knows every workflow. Month 24, the institutional knowledge is irreplaceable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Numbers -->
+  <section class="border-t border-border bg-bg-card">
+    <div class="max-w-4xl mx-auto px-6 py-24 md:py-32">
+      <SectionHeading
+        title="The Numbers"
+        subtitle="One client. One system. Built by one person in two months."
+      />
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-14 mt-16">
+        <div>
+          <p class="font-display text-4xl md:text-5xl text-copper">125x</p>
+          <p class="text-text-secondary text-sm mt-2">Labor forecast speed</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl md:text-5xl text-copper">30x</p>
+          <p class="text-text-secondary text-sm mt-2">PO processing speed</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl md:text-5xl text-copper">60x</p>
+          <p class="text-text-secondary text-sm mt-2">PO generation speed</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl md:text-5xl text-copper">98%</p>
+          <p class="text-text-secondary text-sm mt-2">Inventory accuracy</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl md:text-5xl text-copper">96%</p>
+          <p class="text-text-secondary text-sm mt-2">On-time delivery</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl md:text-5xl text-copper">75 hrs</p>
+          <p class="text-text-secondary text-sm mt-2">Manual work eliminated weekly</p>
+        </div>
+      </div>
+
+      <p class="text-text-muted text-sm mt-16">
+        182,442 lines of production code. 93 database tables. 12 integrated modules.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Urgency -->
+  <section class="border-t border-border">
+    <div class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+      <SectionHeading title="The Urgency" />
+
+      <div class="space-y-12 mb-16">
+        <div class="border-l-2 border-copper-dim pl-8">
+          <p class="font-mono text-sm text-copper mb-2">2024 &ndash; 2026</p>
+          <p class="text-text-body leading-relaxed">
+            AI moved from novelty to production tool. The companies paying attention started building infrastructure. The rest assumed it was hype.
+          </p>
+        </div>
+
+        <div class="border-l-2 border-copper-dim pl-8">
+          <p class="font-mono text-sm text-copper mb-2">2027 &ndash; 2029</p>
+          <p class="text-text-body leading-relaxed">
+            Prepared companies operating at 2&ndash;3x efficiency. Their margins wider. Their teams smaller. Their competitors wondering what happened.
+          </p>
+        </div>
+
+        <div class="border-l-2 border-copper pl-8">
+          <p class="font-mono text-sm text-copper mb-2">2030+</p>
+          <p class="text-text-primary leading-relaxed">
+            Companies without technology infrastructure are not competitive. Period.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-bg-card border border-border-light p-8">
+        <p class="text-text-secondary text-sm leading-relaxed">
+          A $20M company at 12% margins makes $2.4M. At 20% margins, it makes $4M. That's $1.6M per year. The difference compounds. After five years, the gap is insurmountable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTABanner />
+</PageLayout>

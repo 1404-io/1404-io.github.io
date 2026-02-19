@@ -1,0 +1,80 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { SITE } from '../lib/constants';
+---
+
+<PageLayout
+  title="Contact — 1404"
+  description="Start a conversation. One call. That's all it takes to find out what's possible."
+>
+  <section class="max-w-3xl mx-auto px-6 pt-40 pb-24 md:pb-32">
+
+    <!-- Header -->
+    <header class="mb-16">
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-text-primary leading-tight">
+        Start a Conversation
+      </h1>
+      <p class="text-text-secondary text-lg mt-6 leading-relaxed max-w-xl">
+        One call. That's all it takes to find out what's possible.
+      </p>
+    </header>
+
+    <!-- Contact Info -->
+    <div class="mb-20 space-y-6">
+      <div>
+        <p class="text-xs tracking-widest uppercase text-text-muted mb-3">Email</p>
+        <a
+          href={`mailto:${SITE.email}`}
+          class="text-copper text-lg hover:text-copper-bright transition-colors duration-200"
+        >
+          {SITE.email}
+        </a>
+      </div>
+
+      <div>
+        <p class="text-xs tracking-widest uppercase text-text-muted mb-3">Phone</p>
+        <a
+          href={`tel:${SITE.phone}`}
+          class="text-copper text-lg hover:text-copper-bright transition-colors duration-200"
+        >
+          {SITE.phone}
+        </a>
+      </div>
+    </div>
+
+    <!-- What to Expect -->
+    <div class="border-t border-border pt-16">
+      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-8">What to Expect</h2>
+
+      <div class="space-y-6 text-text-body text-base leading-relaxed">
+        <p>
+          We'll spend 30 minutes learning about your business. No pitch deck. No sales script. We want to understand your operations, your team, your pain points, and where you think the biggest opportunities are.
+        </p>
+        <p>
+          If there's a fit, we'll outline what a technology department looks like for your company. The modules you'd need first. The timeline. The investment. Specific enough to make a decision on.
+        </p>
+        <p>
+          If there isn't a fit, we'll tell you. We've turned down work that wasn't right. A company that trusts us with their technology infrastructure deserves honesty, not a sales pitch.
+        </p>
+      </div>
+    </div>
+
+    <!-- The Discovery Process -->
+    <div class="mt-20 bg-bg-card border border-border-light p-8 md:p-10">
+      <p class="text-xs tracking-widest uppercase text-text-muted mb-6">The Discovery Process</p>
+
+      <div class="space-y-6 text-text-body text-sm leading-relaxed">
+        <p>
+          <span class="text-text-primary font-medium">Week 1.</span> We learn your operations. We shadow workflows, interview your team, audit your current tools. We map every process that touches technology.
+        </p>
+        <p>
+          <span class="text-text-primary font-medium">Week 2.</span> We deliver a technology roadmap. Not a generic assessment. A specific, prioritized plan built around your operations. What to build first. What it costs. What it returns.
+        </p>
+        <p>
+          <span class="text-text-primary font-medium">Then you decide.</span> No pressure. No urgency manufactured by a sales team. The roadmap is yours to keep whether you hire us or not.
+        </p>
+      </div>
+    </div>
+
+  </section>
+</PageLayout>

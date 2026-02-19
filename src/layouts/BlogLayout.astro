@@ -1,0 +1,58 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  date: string;
+  author?: string;
+}
+
+const { title, description, date, author = '1404' } = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={`${title} — 1404`} description={description}>
+  <Nav />
+  <main>
+    <article class="max-w-2xl mx-auto px-6 pt-40 pb-24">
+      <header class="mb-16">
+        <time datetime={date} class="text-sm tracking-wide uppercase text-text-muted font-body">
+          {formattedDate}
+        </time>
+        <h1 class="font-display text-4xl md:text-5xl text-text-primary mt-4 leading-tight">
+          {title}
+        </h1>
+        {author && (
+          <p class="mt-6 text-text-secondary text-sm">
+            By {author}
+          </p>
+        )}
+      </header>
+
+      <div class="
+        prose prose-invert max-w-none
+        [&>p]:text-text-body [&>p]:leading-relaxed [&>p]:mb-6 [&>p]:text-base
+        [&>h2]:font-display [&>h2]:text-2xl [&>h2]:text-text-primary [&>h2]:mt-14 [&>h2]:mb-6
+        [&>h3]:font-display [&>h3]:text-xl [&>h3]:text-text-primary [&>h3]:mt-10 [&>h3]:mb-4
+        [&>ul]:text-text-body [&>ul]:mb-6 [&>ul>li]:mb-2
+        [&>ol]:text-text-body [&>ol]:mb-6 [&>ol>li]:mb-2
+        [&>blockquote]:border-l-2 [&>blockquote]:border-copper-dim [&>blockquote]:pl-6 [&>blockquote]:text-text-secondary [&>blockquote]:italic
+        [&>pre]:bg-bg-card [&>pre]:border [&>pre]:border-border-light [&>pre]:rounded [&>pre]:p-4 [&>pre]:overflow-x-auto [&>pre]:text-sm [&>pre]:font-mono
+        [&>code]:text-copper-bright [&>code]:text-sm [&>code]:font-mono
+        [&>a]:text-copper [&>a]:underline [&>a]:underline-offset-4 hover:[&>a]:text-copper-bright
+        [&>hr]:border-border [&>hr]:my-12
+      ">
+        <slot />
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,69 @@
+---
+import { NAV_LINKS, SITE } from '../lib/constants';
+---
+
+<footer class="border-t border-border mt-24">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+
+      <!-- Pages -->
+      <div>
+        <p class="text-xs tracking-wide uppercase text-text-muted mb-5">Pages</p>
+        <ul class="space-y-3">
+          {NAV_LINKS.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Insights -->
+      <div>
+        <p class="text-xs tracking-wide uppercase text-text-muted mb-5">Insights</p>
+        <ul class="space-y-3">
+          <li>
+            <a
+              href="/insights"
+              class="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
+            >
+              All Posts
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="text-xs tracking-wide uppercase text-text-muted mb-5">Contact</p>
+        <ul class="space-y-3">
+          <li>
+            <a
+              href={`mailto:${SITE.email}`}
+              class="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
+            >
+              {SITE.email}
+            </a>
+          </li>
+          <li>
+            <a
+              href={`tel:${SITE.phone}`}
+              class="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
+            >
+              {SITE.phone}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-border-light">
+      <p class="text-xs text-text-muted">&copy; 2026 1404. Detroit.</p>
+    </div>
+  </div>
+</footer>
