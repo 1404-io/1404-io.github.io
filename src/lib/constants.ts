@@ -5,6 +5,7 @@ export const SITE = {
   url: 'https://1404.io',
   email: 'holden@1404.io',
   phone: '248-607-1414',
+  booking: 'https://calendly.com/holden-1404/30min',
 };
 
 export const NAV_LINKS = [
