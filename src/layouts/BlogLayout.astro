@@ -17,11 +17,22 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
 });
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://1404.io/' },
+    { '@type': 'ListItem', 'position': 2, 'name': 'Insights', 'item': 'https://1404.io/insights/' },
+    { '@type': 'ListItem', 'position': 3, 'name': title },
+  ],
+};
 ---
 
 <BaseLayout title={`${title} — 1404`} description={description} ogType="article" article={{ publishedTime: date, author }}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Nav />
-  <main>
+  <main id="main">
     <article class="max-w-2xl mx-auto px-6 pt-40 pb-24">
       <header class="mb-16">
         <time datetime={date} class="text-sm tracking-wide uppercase text-text-muted font-body">
