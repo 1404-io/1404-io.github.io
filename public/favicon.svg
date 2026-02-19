@@ -1,3 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <text x="2" y="24" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', monospace" font-size="24" font-weight="700" fill="#c9956b">14</text>
+  <rect width="32" height="32" rx="4" fill="#111010"/>
+  <text x="16" y="22" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#c9956b" text-anchor="middle">1404</text>
 </svg>
