@@ -792,6 +792,12 @@ import PageLayout from '../layouts/PageLayout.astro';
       });
     }
     fillNestedRows('reports-list', draft.org?.direct_reports);
+
+    // Programmatic checkbox changes don't fire 'change' events, so the
+    // hero/load_bearing select dropdowns (which populate from checked sections
+    // via the grid's change listener) stay empty after prefill. Fire one
+    // synthetic change event on the grid to refresh them.
+    document.getElementById('sections-grid')?.dispatchEvent(new Event('change', {bubbles: true}));
   }
 
   // Render trigger menu
