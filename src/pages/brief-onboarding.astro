@@ -4,7 +4,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 
 <PageLayout
   title="1404 — Daily Brief"
-  description="Design how your morning works. ~5 minutes."
+  description="Build your daily brief. About 5 minutes."
   noindex={true}
 >
   <div class="max-w-3xl mx-auto px-6 py-16">
@@ -13,17 +13,14 @@ import PageLayout from '../layouts/PageLayout.astro';
     <div id="intro" class="onboarding-step">
       <p class="font-mono text-xs text-copper mb-4 tracking-wide">DAILY BRIEF</p>
       <h1 class="font-display text-4xl md:text-5xl text-text-primary mb-6 leading-tight">
-        Most morning briefs fail because they list everything. Yours won't.
+        Build your daily brief.
       </h1>
-      <p class="text-text-body text-lg leading-relaxed mb-4">
-        Six months from now, your morning starts with five minutes and a clear answer — what's on fire, who's waiting on you, what the day needs from <span class="text-copper">you</span>.
-      </p>
       <p class="text-text-body text-lg leading-relaxed mb-6">
-        Let's design that.
+        8 questions, about 5 minutes. We'll send your first brief to your inbox tomorrow morning.
       </p>
       <div id="prefill-banner" class="hidden mb-6 p-4 border border-copper rounded-sm bg-bg-card">
-        <p class="font-mono text-xs text-copper tracking-wide mb-2">WE'VE STARTED THE WORK</p>
-        <p class="text-text-body text-sm">From our prior conversations, we've drafted answers where we could. You'll see those highlighted with a copper border — confirm what's right, change what's not.</p>
+        <p class="font-mono text-xs text-copper tracking-wide mb-2">PRE-FILLED FROM OUR CALLS</p>
+        <p class="text-text-body text-sm">We've drafted answers where we could. Highlighted in copper — confirm or change.</p>
       </div>
       <p class="text-text-secondary text-sm mb-8">
         Your answers go directly to your 1404 onboarder. Nothing is shared externally.
@@ -37,7 +34,7 @@ import PageLayout from '../layouts/PageLayout.astro';
     <div id="progress-wrap" class="hidden sticky top-0 bg-bg pt-4 pb-2 z-10">
       <div class="flex justify-between text-xs text-text-muted font-mono mb-2">
         <span id="step-label">Step 1 of 8</span>
-        <span id="step-name">Six months from now</span>
+        <span id="step-name">Your ideal morning</span>
       </div>
       <div class="h-1 bg-border rounded">
         <div id="progress-bar" class="h-1 bg-copper rounded transition-all" style="width: 0%"></div>
@@ -45,18 +42,18 @@ import PageLayout from '../layouts/PageLayout.astro';
     </div>
 
     <!-- Step 1: Vision (the wishlist) -->
-    <div id="step-1" class="onboarding-step hidden" data-section="Six months from now" data-step="1">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Six months from now</h2>
-      <p class="text-text-body mb-6">Imagine your daily brief is doing its job perfectly. Your morning starts differently than today. <strong class="text-copper">What's changed?</strong></p>
+    <div id="step-1" class="onboarding-step hidden" data-section="Your ideal morning" data-step="1">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Your ideal morning</h2>
+      <p class="text-text-body mb-6">What would your morning look like if your daily brief was actually working? Be specific.</p>
 
       <label class="form-label">
-        <textarea name="wishlist.future_state" class="form-input mb-8" rows="6" placeholder="The first thing I see every morning is..."></textarea>
+        <textarea name="wishlist.future_state" class="form-input mb-8" rows="6"></textarea>
       </label>
 
-      <p class="text-text-body mb-4">And — what's the one <strong class="text-copper">number, person, or event</strong> you'd pay to know first thing every day?</p>
+      <p class="text-text-body mb-4">What's the one thing — a number, a person, an event — you want to see first, every day?</p>
 
       <label class="form-label">
-        <textarea name="wishlist.one_thing" class="form-input" rows="3" placeholder="Cash on hand, or which job hit a snag overnight, or whether Walgreens replied to my email..."></textarea>
+        <textarea name="wishlist.one_thing" class="form-input" rows="3"></textarea>
       </label>
 
       <div class="step-nav">
@@ -66,8 +63,8 @@ import PageLayout from '../layouts/PageLayout.astro';
     </div>
 
     <!-- Step 2: Self-identity (role + outcomes) -->
-    <div id="step-2" class="onboarding-step hidden" data-section="How you're held accountable" data-step="2">
-      <h2 class="font-display text-3xl text-text-primary mb-6">How you're held accountable</h2>
+    <div id="step-2" class="onboarding-step hidden" data-section="Your role" data-step="2">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Your role</h2>
 
       <div class="form-grid">
         <label class="form-label">Your full name
@@ -86,7 +83,7 @@ import PageLayout from '../layouts/PageLayout.astro';
           <textarea name="identity.role_summary" class="form-input" rows="2" placeholder="Run X end-to-end, allocate capital, set strategic direction" required></textarea>
         </label>
 
-        <label class="form-label full">Three outcomes you're judged on
+        <label class="form-label full">Three outcomes you're measured on
           <input type="text" name="identity.outcomes_measured.0" class="form-input mb-2" placeholder="Outcome 1" />
           <input type="text" name="identity.outcomes_measured.1" class="form-input mb-2" placeholder="Outcome 2" />
           <input type="text" name="identity.outcomes_measured.2" class="form-input" placeholder="Outcome 3" />
@@ -102,7 +99,7 @@ import PageLayout from '../layouts/PageLayout.astro';
     <!-- Step 3: Tuesday morning -->
     <div id="step-3" class="onboarding-step hidden" data-section="A normal Tuesday morning" data-step="3">
       <h2 class="font-display text-3xl text-text-primary mb-6">A normal Tuesday morning</h2>
-      <p class="text-text-body mb-6">Walk us through it. When you wake, when you check email, where you read the brief, what you do with it, what's your first meeting, who you see first. <strong class="text-copper">This single answer drives most of the design.</strong></p>
+      <p class="text-text-body mb-6">Walk through it. When you wake, when you check email, where you read the brief, what you do with it, your first meeting, who you see first.</p>
 
       <label class="form-label">
         <textarea name="morning_workflow.tuesday_morning" class="form-input" rows="8" placeholder="I wake at 5:30, do email on my phone in bed, get to the office around 7. First thing I do is check..."></textarea>
@@ -117,7 +114,7 @@ import PageLayout from '../layouts/PageLayout.astro';
     <!-- Step 4: Team — direct report lanes -->
     <div id="step-4" class="onboarding-step hidden" data-section="Your team" data-step="4">
       <h2 class="font-display text-3xl text-text-primary mb-6">Your team</h2>
-      <p class="text-text-body mb-6">For each direct report — name, email, title, and the part of the work they own (their "lane"). Names auto-fill from M365 once we connect; until then, give us what you know.</p>
+      <p class="text-text-body mb-6">For each direct report — name, email, title, and what they own. Names auto-fill from M365 once we connect; until then, fill what you know.</p>
 
       <div id="reports-list">
         <div class="report-row">
@@ -138,22 +135,22 @@ import PageLayout from '../layouts/PageLayout.astro';
     <!-- Step 5: What's in the brief -->
     <div id="step-5" class="onboarding-step hidden" data-section="What's in your brief" data-step="5">
       <h2 class="font-display text-3xl text-text-primary mb-6">What's in your brief</h2>
-      <p class="text-text-body mb-6">Pick the sections that matter to you, day one. Click to include.</p>
+      <p class="text-text-body mb-6">Pick the sections you want, day one. Click to include.</p>
 
       <div id="sections-grid" class="sections-grid">
         <!-- Populated via JS from SECTION_CATALOG -->
       </div>
 
-      <fieldset class="form-label mt-8">Which one is the FIRST THING you scan?
+      <fieldset class="form-label mt-8">First thing you scan?
         <select name="sections.hero_section" class="form-input"></select>
       </fieldset>
 
-      <fieldset class="form-label">Which section, if removed, would make the brief useless?
+      <fieldset class="form-label">Section that, if removed, breaks the brief?
         <select name="sections.load_bearing" class="form-input"></select>
       </fieldset>
 
       <p class="text-text-secondary text-sm mt-6">
-        Once we connect Spectrum + Procore (Phase 2, ~30–45 days), your brief gets four more sections: manpower loading, materials in motion, EOS scorecard live, bid pipeline. We'll loop back to ask which of those you want then.
+        Once we connect Spectrum and Procore (about 30–45 days), four more sections show up: manpower loading, materials in motion, EOS scorecard live, bid pipeline. We'll come back to those then.
       </p>
 
       <div class="step-nav">
@@ -166,16 +163,15 @@ import PageLayout from '../layouts/PageLayout.astro';
     <div id="step-6" class="onboarding-step hidden" data-section="Triggers and numbers" data-step="6">
       <h2 class="font-display text-3xl text-text-primary mb-6">Triggers and numbers</h2>
 
-      <fieldset class="form-label">What's a "stop the day, call me right now" alert?
-        <p class="text-text-muted text-xs mb-3">Pick from the menu, or write your own below.</p>
+      <fieldset class="form-label">Alerts that should stop your day. Pick what fits.
         <div id="trigger-grid" class="checkbox-group"></div>
       </fieldset>
 
-      <label class="form-label mt-4">Other red-flag conditions (free text — one per line)
+      <label class="form-label mt-4">Other alerts (one per line)
         <textarea name="red_flags_custom" class="form-input" rows="3" placeholder="OSHA notice on any site&#10;Key foreman walks off"></textarea>
       </label>
 
-      <label class="form-label mt-6">Numbers you watch obsessively (up to 4)
+      <label class="form-label mt-6">Numbers you watch (up to 4)
         <p class="text-text-muted text-xs mb-2">These become the KPI tiles at the top of your brief.</p>
         <input type="text" name="kpis_top.0" class="form-input mb-2" placeholder="Cash on hand" />
         <input type="text" name="kpis_top.1" class="form-input mb-2" placeholder="Past due AR" />
@@ -254,10 +250,8 @@ import PageLayout from '../layouts/PageLayout.astro';
     <div id="step-8" class="onboarding-step hidden" data-section="Boundaries" data-step="8">
       <h2 class="font-display text-3xl text-text-primary mb-6">Boundaries</h2>
 
-      <p class="text-text-body mb-4">Approvals come to you. Set the line.</p>
-
       <div class="form-grid">
-        <label class="form-label">PO threshold (approve all above $)
+        <label class="form-label">PO threshold ($) — flag anything above
           <input type="number" name="approvals.thresholds.po_above" class="form-input" placeholder="5000" />
         </label>
         <label class="form-label">Expense threshold ($)
@@ -291,7 +285,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 
       <!-- Summary block -->
       <div class="mt-12 p-6 border border-copper rounded-sm bg-bg-card">
-        <p class="font-mono text-xs text-copper tracking-wide mb-3">YOUR BRIEF, AT A GLANCE</p>
+        <p class="font-mono text-xs text-copper tracking-wide mb-3">SUMMARY</p>
         <div id="summary-content" class="text-text-body text-sm space-y-2"></div>
       </div>
 
@@ -302,7 +296,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 
       <div id="submit-result" class="hidden mt-6 p-6 border border-copper rounded-sm bg-bg-card">
         <p class="font-mono text-xs text-copper tracking-wide mb-3">DONE</p>
-        <p class="text-text-body">Your v0 brief lands in your inbox tomorrow morning. We'll be in touch.</p>
+        <p class="text-text-body">Your first brief lands in your inbox tomorrow morning.</p>
       </div>
     </div>
 
@@ -630,7 +624,6 @@ import PageLayout from '../layouts/PageLayout.astro';
     div.innerHTML = `
       <p><strong>${name}</strong>${role ? ' · ' + role : ''}</p>
       <p>${sections} sections · tone: <code>${tone}</code> · cadence: <code>${cadence}</code> · send: <code>${sendTime}</code></p>
-      <p class="text-text-muted text-xs">Hit Build it and your v0 lands in your inbox tomorrow morning.</p>
     `;
   }
 
