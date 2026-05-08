@@ -2,3 +2,7 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+
+# Cloudflare Worker source — deploys separately to workers.dev, not part of GH Pages site
+# Contains prefill JSONs with client-specific context
+api/

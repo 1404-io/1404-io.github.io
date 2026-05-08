@@ -7,7 +7,10 @@ export default defineConfig({
   site: 'https://1404.io',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/analyst/') && !page.includes('/demos'),
+      filter: (page) =>
+        !page.includes('/analyst/') &&
+        !page.includes('/demos') &&
+        !page.includes('/brief-onboarding'),
     }),
   ],
   vite: {
