@@ -126,6 +126,11 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
       <button id="add-report" class="text-copper text-sm hover:text-copper-bright mt-2" type="button">+ Add another</button>
 
+      <label class="form-label mt-8">Or just describe the group
+        <p class="text-text-muted text-xs mb-2">If naming everyone is too much, say it in one line — "all of ops", "the four division heads", "everyone in Industrial", "everyone". We'll resolve names from M365 later.</p>
+        <input type="text" name="org.direct_reports_group" class="form-input" placeholder="all of ops" />
+      </label>
+
       <div class="step-nav">
         <button class="back-btn" data-target="step-3">&larr; Back</button>
         <button class="advance-btn" data-target="step-5">Continue &rarr;</button>
@@ -150,7 +155,7 @@ import PageLayout from '../layouts/PageLayout.astro';
       </fieldset>
 
       <p class="text-text-secondary text-sm mt-6">
-        Once we connect Spectrum and Procore (about 30–45 days), four more sections show up: manpower loading, materials in motion, EOS scorecard live, bid pipeline. We'll come back to those then.
+        Day-1 brief reads from email, calendar, and what you tell us. The numbers from your accounting system (cash, AR, margin, EBITDA) come online once we connect QuickBooks or Sage — usually 7–10 days. Spectrum and Procore (manpower loading, materials in motion, EOS scorecard live, bid pipeline) take 30–45 days. We'll come back for those KPIs then.
       </p>
 
       <div class="step-nav">
@@ -172,11 +177,11 @@ import PageLayout from '../layouts/PageLayout.astro';
       </label>
 
       <label class="form-label mt-6">Numbers you watch (up to 4)
-        <p class="text-text-muted text-xs mb-2">These become the KPI tiles at the top of your brief.</p>
-        <input type="text" name="kpis_top.0" class="form-input mb-2" placeholder="Cash on hand" />
-        <input type="text" name="kpis_top.1" class="form-input mb-2" placeholder="Past due AR" />
-        <input type="text" name="kpis_top.2" class="form-input mb-2" placeholder="Backlog $" />
-        <input type="text" name="kpis_top.3" class="form-input" placeholder="GM %" />
+        <p class="text-text-muted text-xs mb-2">These become the KPI tiles at the top of your brief. Use what we can compute from email + calendar today; financial KPIs (cash, AR, EBITDA) come online when accounting connects.</p>
+        <input type="text" name="kpis_top.0" class="form-input mb-2" placeholder="Active jobs (count)" />
+        <input type="text" name="kpis_top.1" class="form-input mb-2" placeholder="Direct report response time" />
+        <input type="text" name="kpis_top.2" class="form-input mb-2" placeholder="Open bids / RFPs (count)" />
+        <input type="text" name="kpis_top.3" class="form-input" placeholder="Customers > 30 days dark" />
       </label>
 
       <div class="step-nav">
@@ -246,33 +251,14 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
     </div>
 
-    <!-- Step 8: Boundaries + approvals -->
+    <!-- Step 8: Boundaries -->
     <div id="step-8" class="onboarding-step hidden" data-section="Boundaries" data-step="8">
       <h2 class="font-display text-3xl text-text-primary mb-6">Boundaries</h2>
 
-      <div class="form-grid">
-        <label class="form-label">PO threshold ($) — flag anything above
-          <input type="number" name="approvals.thresholds.po_above" class="form-input" placeholder="5000" />
-        </label>
-        <label class="form-label">Expense threshold ($)
-          <input type="number" name="approvals.thresholds.expense_above" class="form-input" placeholder="2500" />
-        </label>
-      </div>
-
-      <label class="form-label mt-8">What should NOT be in your brief?
+      <label class="form-label">What should NOT be in your brief?
         <p class="text-text-muted text-xs mb-2">Free text. Examples: other directors' personnel issues, exec-only comms, not-your-customer pricing, board-level financials, M&amp;A discussions.</p>
         <textarea name="boundaries.exclude_topics" class="form-input" rows="3"></textarea>
       </label>
-
-      <fieldset class="form-label mt-6">Data tier
-        <div class="radio-group">
-          <label><input type="radio" name="boundaries.data_tier" value="T1" checked /> T1 — full P&amp;L + payroll detail (CEO/CFO)</label>
-          <label><input type="radio" name="boundaries.data_tier" value="T2" /> T2 — full P&amp;L, no payroll detail</label>
-          <label><input type="radio" name="boundaries.data_tier" value="T3" /> T3 — P&amp;L + own department</label>
-          <label><input type="radio" name="boundaries.data_tier" value="T4" /> T4 — P&amp;L overview only</label>
-          <label><input type="radio" name="boundaries.data_tier" value="T5" /> T5 — % to plan only</label>
-        </div>
-      </fieldset>
 
       <fieldset class="form-label mt-6">Who can see this brief besides you?
         <div class="checkbox-group">
@@ -526,19 +512,17 @@ import PageLayout from '../layouts/PageLayout.astro';
     {id: 'core_values_pulse', name: 'Core values pulse', desc: 'Behavior callouts with quoted evidence.'},
   ];
 
-  // Trigger menu — for the red-flag question
+  // Trigger menu — for the red-flag question.
+  // Day-1 only: triggers that fire from email/calendar signals. Cash/AR triggers
+  // (cash_runway_critical, aged_ar_writeoff_risk) re-appear once accounting connects.
+  // Spectrum/Procore triggers (manpower, material, submittal, RFI, EOS, rocks)
+  // re-appear once those integrations land.
   const TRIGGER_MENU = [
-    {id: 'cash_runway_critical', label: 'Cash below half of week\'s outflow'},
     {id: 'customer_escalation', label: 'Escalation language from high-revenue customer'},
-    {id: 'aged_ar_writeoff_risk', label: 'AR aged 91+ days above threshold'},
     {id: 'approvals_pile_up', label: 'Many approvals waiting (your team can\'t move)'},
-    {id: 'manpower_out_of_band', label: 'Manpower forecast outside ±10% band'},
-    {id: 'material_delivery_missed', label: 'Material delivery missed for active job'},
+    {id: 'critical_email_buried', label: 'Email from flagged sender, buried in M365 group'},
     {id: 'submittal_late', label: 'Submittal past spec window'},
     {id: 'rfi_overdue', label: 'RFI open >7 days'},
-    {id: 'eos_measurable_red', label: 'EOS scorecard row red 2 weeks running'},
-    {id: 'critical_email_buried', label: 'Email from flagged sender, buried in M365 group'},
-    {id: 'rock_off_track', label: 'Quarterly rock off track > 2 weeks'},
   ];
 
   const TOTAL_STEPS = 8;
