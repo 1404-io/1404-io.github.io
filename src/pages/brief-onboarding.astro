@@ -3,34 +3,33 @@ import PageLayout from '../layouts/PageLayout.astro';
 ---
 
 <PageLayout
-  title="1404 — Daily Brief Onboarding"
-  description="22 questions, ~20 minutes. Configures your personalized AI-prepared morning intelligence."
+  title="1404 — Daily Brief"
+  description="Design how your morning works. ~5 minutes."
   noindex={true}
 >
   <div class="max-w-3xl mx-auto px-6 py-16">
 
     <!-- Intro screen (default visible) -->
     <div id="intro" class="onboarding-step">
-      <p class="font-mono text-xs text-copper mb-4 tracking-wide">DAILY BRIEF ONBOARDING</p>
+      <p class="font-mono text-xs text-copper mb-4 tracking-wide">DAILY BRIEF</p>
       <h1 class="font-display text-4xl md:text-5xl text-text-primary mb-6 leading-tight">
-        Build your daily brief.
+        Most morning briefs fail because they list everything. Yours won't.
       </h1>
       <p class="text-text-body text-lg leading-relaxed mb-4">
-        22 questions, ~20 minutes. By the end, your personalized AI-prepared morning intelligence is configured. We'll send you v0 in your inbox tomorrow morning.
+        Six months from now, your morning starts with five minutes and a clear answer — what's on fire, who's waiting on you, what the day needs from <span class="text-copper">you</span>.
+      </p>
+      <p class="text-text-body text-lg leading-relaxed mb-6">
+        Let's design that.
       </p>
       <div id="prefill-banner" class="hidden mb-6 p-4 border border-copper rounded-sm bg-bg-card">
-        <p class="font-mono text-xs text-copper tracking-wide mb-2">WE'VE PRE-FILLED YOUR ANSWERS</p>
-        <p class="text-text-body text-sm">Based on our prior conversations, we've drafted answers for several questions. You'll see those highlighted with a copper border — confirm what's right or correct what's not.</p>
-        <div id="calibration-list" class="hidden mt-4 pt-4 border-t border-border">
-          <p class="font-mono text-xs text-copper tracking-wide mb-2">QUESTIONS WE COULDN'T INFER — YOUR INPUT NEEDED</p>
-          <ul id="calibration-questions" class="text-text-body text-sm space-y-1 list-disc list-inside"></ul>
-        </div>
+        <p class="font-mono text-xs text-copper tracking-wide mb-2">WE'VE STARTED THE WORK</p>
+        <p class="text-text-body text-sm">From our prior conversations, we've drafted answers where we could. You'll see those highlighted with a copper border — confirm what's right, change what's not.</p>
       </div>
       <p class="text-text-secondary text-sm mb-8">
         Your answers go directly to your 1404 onboarder. Nothing is shared externally.
       </p>
       <button class="advance-btn" data-target="step-1">
-        Get started &rarr;
+        Start &rarr;
       </button>
     </div>
 
@@ -38,16 +37,37 @@ import PageLayout from '../layouts/PageLayout.astro';
     <div id="progress-wrap" class="hidden sticky top-0 bg-bg pt-4 pb-2 z-10">
       <div class="flex justify-between text-xs text-text-muted font-mono mb-2">
         <span id="step-label">Step 1 of 8</span>
-        <span id="step-name">Role & accountability</span>
+        <span id="step-name">Six months from now</span>
       </div>
       <div class="h-1 bg-border rounded">
         <div id="progress-bar" class="h-1 bg-copper rounded transition-all" style="width: 0%"></div>
       </div>
     </div>
 
-    <!-- Step 1: Role -->
-    <div id="step-1" class="onboarding-step hidden" data-section="Role &amp; accountability" data-step="1">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Role &amp; accountability</h2>
+    <!-- Step 1: Vision (the wishlist) -->
+    <div id="step-1" class="onboarding-step hidden" data-section="Six months from now" data-step="1">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Six months from now</h2>
+      <p class="text-text-body mb-6">Imagine your daily brief is doing its job perfectly. Your morning starts differently than today. <strong class="text-copper">What's changed?</strong></p>
+
+      <label class="form-label">
+        <textarea name="wishlist.future_state" class="form-input mb-8" rows="6" placeholder="The first thing I see every morning is..."></textarea>
+      </label>
+
+      <p class="text-text-body mb-4">And — what's the one <strong class="text-copper">number, person, or event</strong> you'd pay to know first thing every day?</p>
+
+      <label class="form-label">
+        <textarea name="wishlist.one_thing" class="form-input" rows="3" placeholder="Cash on hand, or which job hit a snag overnight, or whether Walgreens replied to my email..."></textarea>
+      </label>
+
+      <div class="step-nav">
+        <span></span>
+        <button class="advance-btn" data-target="step-2">Continue &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Self-identity (role + outcomes) -->
+    <div id="step-2" class="onboarding-step hidden" data-section="How you're held accountable" data-step="2">
+      <h2 class="font-display text-3xl text-text-primary mb-6">How you're held accountable</h2>
 
       <div class="form-grid">
         <label class="form-label">Your full name
@@ -58,15 +78,15 @@ import PageLayout from '../layouts/PageLayout.astro';
           <input type="email" name="identity.email" class="form-input" required placeholder="you@company.com" />
         </label>
 
-        <label class="form-label">Title
+        <label class="form-label full">Title
           <input type="text" name="identity.title" class="form-input" required placeholder="VP of Operations / CEO / etc." />
         </label>
 
-        <label class="form-label">In one sentence, what is your job?
-          <textarea name="identity.role_summary" class="form-input" rows="3" placeholder="Run X end-to-end, allocate capital, set strategic direction" required></textarea>
+        <label class="form-label full">In one sentence, what's your job?
+          <textarea name="identity.role_summary" class="form-input" rows="2" placeholder="Run X end-to-end, allocate capital, set strategic direction" required></textarea>
         </label>
 
-        <label class="form-label">3 outcomes you're measured on
+        <label class="form-label full">Three outcomes you're judged on
           <input type="text" name="identity.outcomes_measured.0" class="form-input mb-2" placeholder="Outcome 1" />
           <input type="text" name="identity.outcomes_measured.1" class="form-input mb-2" placeholder="Outcome 2" />
           <input type="text" name="identity.outcomes_measured.2" class="form-input" placeholder="Outcome 3" />
@@ -74,14 +94,30 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
 
       <div class="step-nav">
-        <button class="advance-btn" data-target="step-2">Continue &rarr;</button>
+        <button class="back-btn" data-target="step-1">&larr; Back</button>
+        <button class="advance-btn" data-target="step-3">Continue &rarr;</button>
       </div>
     </div>
 
-    <!-- Step 2: Org -->
-    <div id="step-2" class="onboarding-step hidden" data-section="Who reports to you" data-step="2">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Who reports to you?</h2>
-      <p class="text-text-body mb-6">For each direct report, give us their name, email, title, and the part of the work they own (their "lane").</p>
+    <!-- Step 3: Tuesday morning -->
+    <div id="step-3" class="onboarding-step hidden" data-section="A normal Tuesday morning" data-step="3">
+      <h2 class="font-display text-3xl text-text-primary mb-6">A normal Tuesday morning</h2>
+      <p class="text-text-body mb-6">Walk us through it. When you wake, when you check email, where you read the brief, what you do with it, what's your first meeting, who you see first. <strong class="text-copper">This single answer drives most of the design.</strong></p>
+
+      <label class="form-label">
+        <textarea name="morning_workflow.tuesday_morning" class="form-input" rows="8" placeholder="I wake at 5:30, do email on my phone in bed, get to the office around 7. First thing I do is check..."></textarea>
+      </label>
+
+      <div class="step-nav">
+        <button class="back-btn" data-target="step-2">&larr; Back</button>
+        <button class="advance-btn" data-target="step-4">Continue &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Team — direct report lanes -->
+    <div id="step-4" class="onboarding-step hidden" data-section="Your team" data-step="4">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Your team</h2>
+      <p class="text-text-body mb-6">For each direct report — name, email, title, and the part of the work they own (their "lane"). Names auto-fill from M365 once we connect; until then, give us what you know.</p>
 
       <div id="reports-list">
         <div class="report-row">
@@ -93,99 +129,32 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
       <button id="add-report" class="text-copper text-sm hover:text-copper-bright mt-2" type="button">+ Add another</button>
 
-      <label class="form-label mt-8">Who do you report to? (emails, comma-separated)
-        <input type="text" name="org.reports_to" class="form-input" placeholder="ceo@company.com, board@..." />
-      </label>
-
-      <div class="step-nav">
-        <button class="back-btn" data-target="step-1">&larr; Back</button>
-        <button class="advance-btn" data-target="step-3">Continue &rarr;</button>
-      </div>
-    </div>
-
-    <!-- Step 3: Customers / Programs -->
-    <div id="step-3" class="onboarding-step hidden" data-section="Customers & programs" data-step="3">
-      <h2 class="font-display text-3xl text-text-primary mb-6">What's your lane?</h2>
-      <p class="text-text-body mb-6">Which customers, programs, or accounts are <strong class="text-copper">your</strong> responsibility — vs explicitly someone else's?</p>
-
-      <div class="form-label">My customers / programs
-        <p class="text-text-muted text-xs mb-3">Email domain + label + revenue weight (1.0 = biggest, 0.1 = small). Add up to 10.</p>
-        <div id="my-customers"></div>
-        <button id="add-my-customer" class="text-copper text-sm hover:text-copper-bright mt-2" type="button">+ Add customer</button>
-      </div>
-
-      <div class="form-label mt-8">NOT my lane (someone else owns)
-        <p class="text-text-muted text-xs mb-3">Equally important. Domain + label + who owns it instead.</p>
-        <div id="not-mine"></div>
-        <button id="add-not-mine" class="text-copper text-sm hover:text-copper-bright mt-2" type="button">+ Add</button>
-      </div>
-
-      <label class="form-label mt-8">Project ID / job code formats
-        <p class="text-text-muted text-xs mb-2">Example: <code>C0XXXX</code>, <code>JOB-####-YY</code>, <code>RESET######</code></p>
-        <input type="text" name="ownership.project_id_patterns" class="form-input" placeholder="C\d{4}, JOB-\d+-\d{2}" />
-      </label>
-
-      <div class="step-nav">
-        <button class="back-btn" data-target="step-2">&larr; Back</button>
-        <button class="advance-btn" data-target="step-4">Continue &rarr;</button>
-      </div>
-    </div>
-
-    <!-- Step 4: Workflow -->
-    <div id="step-4" class="onboarding-step hidden" data-section="Morning workflow" data-step="4">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Walk me through a normal Tuesday morning.</h2>
-      <p class="text-text-body mb-6">Free text. When do you wake, when do you check email, where do you read the brief, what do you do with it, what's your first meeting, who do you see first. <strong class="text-copper">This single answer drives most of the design.</strong></p>
-
-      <textarea name="morning_workflow.tuesday_morning" class="form-input mb-8" rows="8" placeholder="I wake at 5:30, do email on my phone in bed, get to the office around 7. First thing I do is check..."></textarea>
-
-      <div class="form-grid">
-        <label class="form-label">Daily standup with whom?
-          <input type="text" name="morning_workflow.standup_with" class="form-input" placeholder="Matt, the leadership team, etc." />
-        </label>
-
-        <label class="form-label">Standup time (local)
-          <input type="time" name="morning_workflow.standup_time_local" class="form-input" />
-        </label>
-
-        <fieldset class="form-label">How long to read the brief?
-          <div class="radio-group">
-            <label><input type="radio" name="morning_workflow.scan_time_minutes" value="5" /> 5 min — gimme the answer</label>
-            <label><input type="radio" name="morning_workflow.scan_time_minutes" value="10" checked /> 10 min — quick scan</label>
-            <label><input type="radio" name="morning_workflow.scan_time_minutes" value="20" /> 20 min — I'll dig in</label>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-label">Where do you read it?
-          <div class="radio-group">
-            <label><input type="radio" name="morning_workflow.device" value="laptop" checked /> Laptop</label>
-            <label><input type="radio" name="morning_workflow.device" value="phone" /> Phone</label>
-            <label><input type="radio" name="morning_workflow.device" value="printed" /> Printed</label>
-          </div>
-        </fieldset>
-      </div>
-
       <div class="step-nav">
         <button class="back-btn" data-target="step-3">&larr; Back</button>
         <button class="advance-btn" data-target="step-5">Continue &rarr;</button>
       </div>
     </div>
 
-    <!-- Step 5: Sections -->
+    <!-- Step 5: What's in the brief -->
     <div id="step-5" class="onboarding-step hidden" data-section="What's in your brief" data-step="5">
-      <h2 class="font-display text-3xl text-text-primary mb-6">What's in the brief?</h2>
-      <p class="text-text-body mb-6">Pick the 5-9 sections that matter most. Click to include. Drag to reorder later.</p>
+      <h2 class="font-display text-3xl text-text-primary mb-6">What's in your brief</h2>
+      <p class="text-text-body mb-6">Pick the sections that matter to you, day one. Click to include.</p>
 
       <div id="sections-grid" class="sections-grid">
         <!-- Populated via JS from SECTION_CATALOG -->
       </div>
 
-      <fieldset class="form-label mt-8">Which one is the FIRST THING you scan? (becomes top of body)
+      <fieldset class="form-label mt-8">Which one is the FIRST THING you scan?
         <select name="sections.hero_section" class="form-input"></select>
       </fieldset>
 
-      <fieldset class="form-label">Which section, if removed, would make the brief useless? (load-bearing)
+      <fieldset class="form-label">Which section, if removed, would make the brief useless?
         <select name="sections.load_bearing" class="form-input"></select>
       </fieldset>
+
+      <p class="text-text-secondary text-sm mt-6">
+        Once we connect Spectrum + Procore (Phase 2, ~30–45 days), your brief gets four more sections: manpower loading, materials in motion, EOS scorecard live, bid pipeline. We'll loop back to ask which of those you want then.
+      </p>
 
       <div class="step-nav">
         <button class="back-btn" data-target="step-4">&larr; Back</button>
@@ -193,53 +162,25 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
     </div>
 
-    <!-- Step 6: Triggers + KPIs + Approvals -->
-    <div id="step-6" class="onboarding-step hidden" data-section="Triggers, KPIs, approvals" data-step="6">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Red flags &amp; approvals</h2>
+    <!-- Step 6: Triggers + KPIs -->
+    <div id="step-6" class="onboarding-step hidden" data-section="Triggers and numbers" data-step="6">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Triggers and numbers</h2>
 
-      <fieldset class="form-label mt-2">What constitutes "stop the day, call me right now"?
-        <p class="text-text-muted text-xs mb-3">Pick from common triggers, or add your own.</p>
+      <fieldset class="form-label">What's a "stop the day, call me right now" alert?
+        <p class="text-text-muted text-xs mb-3">Pick from the menu, or write your own below.</p>
         <div id="trigger-grid" class="checkbox-group"></div>
       </fieldset>
 
       <label class="form-label mt-4">Other red-flag conditions (free text — one per line)
-        <textarea name="red_flags_custom" class="form-input" rows="3" placeholder="OSHA notice on any site\nKey foreman walks off"></textarea>
+        <textarea name="red_flags_custom" class="form-input" rows="3" placeholder="OSHA notice on any site&#10;Key foreman walks off"></textarea>
       </label>
 
       <label class="form-label mt-6">Numbers you watch obsessively (up to 4)
-        <p class="text-text-muted text-xs mb-2">These become the KPI tiles at the top.</p>
+        <p class="text-text-muted text-xs mb-2">These become the KPI tiles at the top of your brief.</p>
         <input type="text" name="kpis_top.0" class="form-input mb-2" placeholder="Cash on hand" />
         <input type="text" name="kpis_top.1" class="form-input mb-2" placeholder="Past due AR" />
         <input type="text" name="kpis_top.2" class="form-input mb-2" placeholder="Backlog $" />
         <input type="text" name="kpis_top.3" class="form-input" placeholder="GM %" />
-      </label>
-
-      <fieldset class="form-label mt-6">What kinds of approvals come to you? (check all)
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="approvals.kinds" value="timesheet" /> Timesheets</label>
-          <label><input type="checkbox" name="approvals.kinds" value="expense" /> Expenses</label>
-          <label><input type="checkbox" name="approvals.kinds" value="po" /> Purchase orders</label>
-          <label><input type="checkbox" name="approvals.kinds" value="contract_sign_off" /> Contract sign-offs</label>
-          <label><input type="checkbox" name="approvals.kinds" value="change_order" /> Change orders</label>
-          <label><input type="checkbox" name="approvals.kinds" value="hire" /> Hires</label>
-          <label><input type="checkbox" name="approvals.kinds" value="termination" /> Terminations</label>
-          <label><input type="checkbox" name="approvals.kinds" value="customer_concession" /> Customer concessions</label>
-          <label><input type="checkbox" name="approvals.kinds" value="scope_change" /> Scope changes</label>
-        </div>
-      </fieldset>
-
-      <div class="form-grid mt-6">
-        <label class="form-label">PO threshold (approve all above $)
-          <input type="number" name="approvals.thresholds.po_above" class="form-input" placeholder="5000" />
-        </label>
-        <label class="form-label">Expense threshold ($)
-          <input type="number" name="approvals.thresholds.expense_above" class="form-input" placeholder="2500" />
-        </label>
-      </div>
-
-      <label class="form-label mt-6">Who routinely CCs you on stuff you don't actually own?
-        <p class="text-text-muted text-xs mb-2">Names or emails — this lets us filter that noise out.</p>
-        <input type="text" name="approvals.auto_route_away" class="form-input" placeholder="Matt, Ben, ..." />
       </label>
 
       <div class="step-nav">
@@ -248,21 +189,21 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
     </div>
 
-    <!-- Step 7: Format & delivery -->
-    <div id="step-7" class="onboarding-step hidden" data-section="Format & delivery" data-step="7">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Format &amp; delivery</h2>
+    <!-- Step 7: Rhythm & format -->
+    <div id="step-7" class="onboarding-step hidden" data-section="Rhythm and format" data-step="7">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Rhythm and format</h2>
 
-      <fieldset class="form-label">Tone preference
+      <fieldset class="form-label">Tone
         <div class="radio-card-group mt-3">
           <label class="radio-card">
             <input type="radio" name="format.tone" value="add_friendly" />
             <strong>ADD-friendly</strong>
-            <span>3-5 items per section, action-first, scannable, color-coded approvals.</span>
+            <span>3–5 items per section, action-first, scannable, color-coded approvals.</span>
           </label>
           <label class="radio-card">
             <input type="radio" name="format.tone" value="exec_strategic" checked />
             <strong>Exec strategic</strong>
-            <span>BLUF + KPIs + risks + drilldowns. 5-7 sections, more analysis.</span>
+            <span>BLUF + KPIs + risks + drilldowns. 5–7 sections, more analysis.</span>
           </label>
           <label class="radio-card">
             <input type="radio" name="format.tone" value="deep_data" />
@@ -274,20 +215,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 
       <div class="form-grid mt-8">
         <label class="form-label">Send time (local)
-          <input type="time" name="delivery.send_time_local" class="form-input" value="06:30" />
-        </label>
-
-        <label class="form-label">Time zone
-          <select name="delivery.timezone" class="form-input">
-            <option value="America/New_York">Eastern (NYC)</option>
-            <option value="America/Detroit">Eastern (Detroit)</option>
-            <option value="America/Chicago" selected>Central (Chicago)</option>
-            <option value="America/Denver">Mountain (Denver)</option>
-            <option value="America/Phoenix">Arizona</option>
-            <option value="America/Los_Angeles">Pacific (LA)</option>
-            <option value="America/Anchorage">Alaska</option>
-            <option value="Pacific/Honolulu">Hawaii</option>
-          </select>
+          <input type="time" name="delivery.send_time_local" class="form-input" value="06:00" />
         </label>
 
         <fieldset class="form-label">Cadence
@@ -299,11 +227,19 @@ import PageLayout from '../layouts/PageLayout.astro';
           </div>
         </fieldset>
 
-        <fieldset class="form-label">Delivery
+        <fieldset class="form-label">Where do you read it?
           <div class="radio-group">
-            <label><input type="radio" name="delivery.delivery_method" value="email_body" checked /> Email body</label>
-            <label><input type="radio" name="delivery.delivery_method" value="html_attachment" /> HTML attachment</label>
-            <label><input type="radio" name="delivery.delivery_method" value="mission_control_link" /> Mission Control link</label>
+            <label><input type="radio" name="morning_workflow.device" value="laptop" checked /> Laptop</label>
+            <label><input type="radio" name="morning_workflow.device" value="phone" /> Phone</label>
+            <label><input type="radio" name="morning_workflow.device" value="printed" /> Printed</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-label">How long do you give it?
+          <div class="radio-group">
+            <label><input type="radio" name="morning_workflow.scan_time_minutes" value="5" /> 5 min — gimme the answer</label>
+            <label><input type="radio" name="morning_workflow.scan_time_minutes" value="10" checked /> 10 min — quick scan</label>
+            <label><input type="radio" name="morning_workflow.scan_time_minutes" value="20" /> 20 min — I'll dig in</label>
           </div>
         </fieldset>
       </div>
@@ -314,11 +250,27 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
     </div>
 
-    <!-- Step 8: Boundaries + review + submit -->
-    <div id="step-8" class="onboarding-step hidden" data-section="Boundaries & review" data-step="8">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Boundaries &amp; review</h2>
+    <!-- Step 8: Boundaries + approvals -->
+    <div id="step-8" class="onboarding-step hidden" data-section="Boundaries" data-step="8">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Boundaries</h2>
 
-      <fieldset class="form-label">Data tier
+      <p class="text-text-body mb-4">Approvals come to you. Set the line.</p>
+
+      <div class="form-grid">
+        <label class="form-label">PO threshold (approve all above $)
+          <input type="number" name="approvals.thresholds.po_above" class="form-input" placeholder="5000" />
+        </label>
+        <label class="form-label">Expense threshold ($)
+          <input type="number" name="approvals.thresholds.expense_above" class="form-input" placeholder="2500" />
+        </label>
+      </div>
+
+      <label class="form-label mt-8">What should NOT be in your brief?
+        <p class="text-text-muted text-xs mb-2">Free text. Examples: other directors' personnel issues, exec-only comms, not-your-customer pricing, board-level financials, M&amp;A discussions.</p>
+        <textarea name="boundaries.exclude_topics" class="form-input" rows="3"></textarea>
+      </label>
+
+      <fieldset class="form-label mt-6">Data tier
         <div class="radio-group">
           <label><input type="radio" name="boundaries.data_tier" value="T1" checked /> T1 — full P&amp;L + payroll detail (CEO/CFO)</label>
           <label><input type="radio" name="boundaries.data_tier" value="T2" /> T2 — full P&amp;L, no payroll detail</label>
@@ -327,11 +279,6 @@ import PageLayout from '../layouts/PageLayout.astro';
           <label><input type="radio" name="boundaries.data_tier" value="T5" /> T5 — % to plan only</label>
         </div>
       </fieldset>
-
-      <label class="form-label mt-6">What should NOT be in your brief?
-        <p class="text-text-muted text-xs mb-2">Free text. Examples: other directors' personnel issues, exec-only comms, not-your-customer pricing, board-level financials, M&amp;A discussions.</p>
-        <textarea name="boundaries.exclude_topics" class="form-input" rows="3"></textarea>
-      </label>
 
       <fieldset class="form-label mt-6">Who can see this brief besides you?
         <div class="checkbox-group">
@@ -344,18 +291,18 @@ import PageLayout from '../layouts/PageLayout.astro';
 
       <!-- Summary block -->
       <div class="mt-12 p-6 border border-copper rounded-sm bg-bg-card">
-        <p class="font-mono text-xs text-copper tracking-wide mb-3">YOUR ANSWERS, AT A GLANCE</p>
+        <p class="font-mono text-xs text-copper tracking-wide mb-3">YOUR BRIEF, AT A GLANCE</p>
         <div id="summary-content" class="text-text-body text-sm space-y-2"></div>
       </div>
 
       <div class="step-nav mt-8">
         <button class="back-btn" data-target="step-7">&larr; Back</button>
-        <button id="submit-btn" class="submit-btn">Submit — generate my brief</button>
+        <button id="submit-btn" class="submit-btn">Build it &rarr;</button>
       </div>
 
       <div id="submit-result" class="hidden mt-6 p-6 border border-copper rounded-sm bg-bg-card">
-        <p class="font-mono text-xs text-copper tracking-wide mb-3">SUBMITTED</p>
-        <p class="text-text-body">Thanks. Your config is generated. Your reviewer at 1404 will be in touch within 24 hours with v0 of your daily brief.</p>
+        <p class="font-mono text-xs text-copper tracking-wide mb-3">DONE</p>
+        <p class="text-text-body">Your v0 brief lands in your inbox tomorrow morning. We'll be in touch.</p>
       </div>
     </div>
 
@@ -494,12 +441,6 @@ import PageLayout from '../layouts/PageLayout.astro';
   @media (max-width: 767px) {
     .report-row { grid-template-columns: 1fr; }
   }
-  .my-customer-row, .not-mine-row {
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
   .sections-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -572,52 +513,26 @@ import PageLayout from '../layouts/PageLayout.astro';
 </style>
 
 <script>
-  // Section catalog — keep in sync with CONFIG_SCHEMA.md
+  // Section catalog — Day-1 sections only (universal, no Spectrum/Procore dependency).
+  // Phase-2 sections (manpower_loading, materials_in_motion, eos_scorecard_live, etc.)
+  // are intentionally absent — we'll re-ask once those integrations land.
   const SECTION_CATALOG = [
-    // Universal sections
-    {id: 'one_liner', name: '30-second read', desc: 'Single-sentence summary at the top.', tags: ['universal']},
-    {id: 'red_banner', name: 'Red banner', desc: 'Fires only if a trigger matches.', tags: ['universal']},
-    {id: 'actions_today', name: 'Top 3 actions today', desc: 'Time-stamped things you must do today.', tags: ['universal']},
-    {id: 'calendar', name: "Today's calendar", desc: 'Meetings with attendees.', tags: ['universal']},
-    {id: 'calendar_with_prep', name: 'Calendar with prep', desc: 'Meetings linked to live open threads.', tags: ['universal']},
-    {id: 'inbox_needs_response', name: 'Inbox triage', desc: 'Strict-filter emails that need your reply.', tags: ['universal']},
-    {id: 'conversations', name: 'Conversations needing reply', desc: 'Filtered email triage with FITFO answers.', tags: ['universal']},
-    {id: 'approvals_needed', name: 'Approvals waiting', desc: 'Timesheets, expenses, POs, change orders — color-coded.', tags: ['universal']},
-    {id: 'direct_report_activity', name: 'Direct report activity', desc: 'Per-person card: sentiment, topics, pending for you.', tags: ['universal']},
-    {id: 'team_pulse', name: 'Team pulse + standup agenda', desc: 'Per-report standup question.', tags: ['universal']},
-    {id: 'what_changed', name: 'What changed since last brief', desc: 'New wins, closed items, aging, first-flagged patterns.', tags: ['universal']},
-    {id: 'decisions_today', name: 'Decisions today', desc: 'Recommendations + cost of inaction.', tags: ['universal']},
-    {id: 'risks', name: 'Risks & systemic patterns', desc: 'Cross-source pattern detection.', tags: ['universal']},
-    {id: 'core_values_pulse', name: 'Core values pulse', desc: 'Behavior callouts with quoted evidence.', tags: ['universal']},
-
-    // Finance sections
-    {id: 'money_in_motion', name: 'Money in motion', desc: 'Cash on hand, AR, AP, week ahead, top chase list.', tags: ['finance']},
-    {id: 'past_due_ar', name: 'Past-due AR aging', desc: 'Aging buckets + top customers to chase.', tags: ['finance']},
-    {id: 'wip_status', name: 'WIP / job-cost status', desc: 'Job-cost over-under per active job (Spectrum / job-cost system).', tags: ['finance']},
-
-    // Sales / pipeline sections
-    {id: 'pipeline_command_center', name: 'Pipeline command center', desc: 'Recent wins + customer concerns.', tags: ['sales']},
-    {id: 'wins', name: 'Wins booked', desc: 'New awards with $ amounts.', tags: ['sales']},
-    {id: 'bid_pipeline', name: 'Bid pipeline', desc: 'Open bids, due dates, awarded/lost — currently in your head + email.', tags: ['sales']},
-
-    // Project / construction sections
-    {id: 'project_status', name: 'Project status', desc: 'Active projects with ship dates + blockers.', tags: ['project']},
-    {id: 'qc_patterns', name: 'QC pattern detection', desc: 'Repeat issues by store / vendor / type.', tags: ['project']},
-    {id: 'construction', name: 'Construction lane', desc: 'Keyword-filtered to construction work.', tags: ['project']},
-    {id: 'landscape', name: 'Landscape lane', desc: 'Keyword-filtered to landscape work.', tags: ['project']},
-
-    // Electrical / contracting sections (Douglas-style)
-    {id: 'materials_in_motion', name: 'Materials in motion', desc: 'PO → ship → warehouse → site receipt for active jobs.', tags: ['contracting']},
-    {id: 'submittals_status', name: 'Submittals status', desc: 'Open submittals, spec deadlines, what\'s late.', tags: ['contracting']},
-    {id: 'manpower_loading', name: 'Manpower loading', desc: 'Journeyman / apprentice forecast vs ±10% target band, weeks out of band flagged.', tags: ['contracting']},
-    {id: 'rocks_status', name: 'Quarterly rocks status', desc: 'EOS rocks progress by owner, rolled up.', tags: ['contracting', 'eos']},
-    {id: 'eos_scorecard_live', name: 'EOS scorecard (live)', desc: 'Measurables row-by-row with R/Y/G vs target — distinct from KPI tiles.', tags: ['contracting', 'eos']},
-    {id: 'service_activity', name: 'Service activity', desc: 'Service tech activity yesterday + today\'s calls, with site-history flag.', tags: ['contracting']},
-    {id: 'procore_pulse', name: 'Procore pulse', desc: 'RFIs open, change orders, drawings updated (Procore data).', tags: ['contracting']},
-    {id: 'apprentice_pulse', name: 'Apprentice retention pulse', desc: 'Flight-risk indicators on graduated journeymen ($37-55K cost per departure).', tags: ['contracting']},
+    {id: 'one_liner', name: '30-second read', desc: 'Single-sentence summary at the top.'},
+    {id: 'red_banner', name: 'Red banner', desc: 'Fires only if a trigger matches.'},
+    {id: 'actions_today', name: 'Top 3 actions today', desc: 'Time-stamped things you must do today.'},
+    {id: 'calendar_with_prep', name: 'Calendar with prep', desc: 'Today\'s meetings linked to live open threads.'},
+    {id: 'inbox_needs_response', name: 'Inbox triage', desc: 'Strict-filter emails that need your reply.'},
+    {id: 'conversations', name: 'Conversations needing reply', desc: 'Filtered email triage with FITFO answers.'},
+    {id: 'approvals_needed', name: 'Approvals waiting', desc: 'Timesheets, expenses, POs, change orders — color-coded.'},
+    {id: 'direct_report_activity', name: 'Direct report activity', desc: 'Per-person card: sentiment, topics, pending for you.'},
+    {id: 'team_pulse', name: 'Team pulse + standup agenda', desc: 'Per-report standup question.'},
+    {id: 'what_changed', name: 'What changed since last brief', desc: 'New wins, closed items, aging, first-flagged patterns.'},
+    {id: 'decisions_today', name: 'Decisions today', desc: 'Recommendations + cost of inaction.'},
+    {id: 'risks', name: 'Risks & systemic patterns', desc: 'Cross-source pattern detection.'},
+    {id: 'core_values_pulse', name: 'Core values pulse', desc: 'Behavior callouts with quoted evidence.'},
   ];
 
-  // Trigger menu — for the red-flag question (Step 6)
+  // Trigger menu — for the red-flag question
   const TRIGGER_MENU = [
     {id: 'cash_runway_critical', label: 'Cash below half of week\'s outflow'},
     {id: 'customer_escalation', label: 'Escalation language from high-revenue customer'},
@@ -633,7 +548,7 @@ import PageLayout from '../layouts/PageLayout.astro';
   ];
 
   const TOTAL_STEPS = 8;
-  const STORAGE_KEY = 'brief-onboarding-state';
+  const STORAGE_KEY = 'brief-onboarding-state-v3';
   const params = new URLSearchParams(window.location.search);
   const token = params.get('t');
 
@@ -641,16 +556,12 @@ import PageLayout from '../layouts/PageLayout.astro';
   function renderSectionCatalog() {
     const grid = document.getElementById('sections-grid');
     if (!grid) return;
-    grid.innerHTML = SECTION_CATALOG.map(s => {
-      const tags = (s.tags || []).map(t => `<span class="section-tag">${t}</span>`).join('');
-      return `
+    grid.innerHTML = SECTION_CATALOG.map(s => `
       <label class="section-card">
         <input type="checkbox" name="sections.include" value="${s.id}" />
         <div class="name">${s.name}</div>
         <div class="desc">${s.desc}</div>
-        <div class="section-tags">${tags}</div>
-      </label>`;
-    }).join('');
+      </label>`).join('');
 
     // Populate hero + load_bearing dropdowns from selected sections
     function refreshDropdowns() {
@@ -669,18 +580,17 @@ import PageLayout from '../layouts/PageLayout.astro';
     refreshDropdowns();
   }
 
-  // Add-row helpers
+  // Add-row helpers (only direct reports; customer ownership auto-derived from M365 post-sync)
   function setupAddRow(buttonId, containerId, fields) {
     const btn = document.getElementById(buttonId);
     const container = document.getElementById(containerId);
     if (!btn || !container) return;
     function addRow() {
       const row = document.createElement('div');
-      row.className = containerId === 'reports-list' ? 'report-row' : (containerId === 'my-customers' ? 'my-customer-row' : 'not-mine-row');
+      row.className = 'report-row';
       row.innerHTML = fields.map(f => `<input type="${f.type || 'text'}" class="form-input" placeholder="${f.placeholder}" data-key="${f.key}" />`).join('');
       container.appendChild(row);
     }
-    addRow(); // start with 1 row visible
     btn.addEventListener('click', addRow);
   }
 
@@ -711,15 +621,16 @@ import PageLayout from '../layouts/PageLayout.astro';
     const data = collectFormData();
     const div = document.getElementById('summary-content');
     if (!div) return;
-    const name = data.identity?.name || '(no name)';
-    const role = data.identity?.title || '(no title)';
+    const name = data.identity?.name || '(your name)';
+    const role = data.identity?.title || '';
     const sections = (data.sections?.include || []).length;
     const tone = data.format?.tone || 'exec_strategic';
     const cadence = data.delivery?.cadence || 'mon_fri';
+    const sendTime = data.delivery?.send_time_local || '06:00';
     div.innerHTML = `
-      <p><strong>${name}</strong> · ${role}</p>
-      <p>${sections} sections selected · tone: <code>${tone}</code> · cadence: <code>${cadence}</code></p>
-      <p class="text-text-muted text-xs">Submit will send your config to your 1404 onboarder, who'll review and run v0 of your brief within 24 hours.</p>
+      <p><strong>${name}</strong>${role ? ' · ' + role : ''}</p>
+      <p>${sections} sections · tone: <code>${tone}</code> · cadence: <code>${cadence}</code> · send: <code>${sendTime}</code></p>
+      <p class="text-text-muted text-xs">Hit Build it and your v0 lands in your inbox tomorrow morning.</p>
     `;
   }
 
@@ -742,20 +653,22 @@ import PageLayout from '../layouts/PageLayout.astro';
       if (/^\d+$/.test(last)) cur[parseInt(last, 10)] = val;
       else cur[last] = val;
     }
+    function getNested(obj, path) {
+      const parts = path.split('.');
+      let cur = obj;
+      for (const p of parts) {
+        if (cur == null) return undefined;
+        cur = /^\d+$/.test(p) ? cur[parseInt(p, 10)] : cur[p];
+      }
+      return cur;
+    }
     document.querySelectorAll('input[name], textarea[name], select[name]').forEach(el => {
       const name = el.name;
       if (!name) return;
       if (el.type === 'checkbox') {
         if (el.checked) {
-          if (!data[name]) data[name] = [];
-          // Use setNested to support nested keys; fallback to flat
           if (name.includes('.')) {
-            const cur = (data[name.split('.')[0]] || {});
-            // Treat as multi-value array under the key path
-            // For sections.include / approvals.kinds / boundaries.shared_with — store as array
-            const path = name;
-            // Just collect into a top-level set, processed below
-            setNested(data, path, [...(getNested(data, path) || []), el.value]);
+            setNested(data, name, [...(getNested(data, name) || []), el.value]);
           } else {
             data[name] = [...(data[name] || []), el.value];
           }
@@ -766,15 +679,6 @@ import PageLayout from '../layouts/PageLayout.astro';
         setNested(data, name, el.value);
       }
     });
-    function getNested(obj, path) {
-      const parts = path.split('.');
-      let cur = obj;
-      for (const p of parts) {
-        if (cur == null) return undefined;
-        cur = /^\d+$/.test(p) ? cur[parseInt(p, 10)] : cur[p];
-      }
-      return cur;
-    }
 
     // Reports table → org.direct_reports
     const reports = [...document.querySelectorAll('#reports-list .report-row')]
@@ -789,30 +693,6 @@ import PageLayout from '../layouts/PageLayout.astro';
       data.org.direct_reports = reports;
     }
 
-    // Customer rows
-    const myCustomers = [...document.querySelectorAll('#my-customers .my-customer-row')]
-      .map(row => {
-        const obj = {};
-        row.querySelectorAll('input').forEach(inp => obj[inp.dataset.key] = inp.value);
-        return obj;
-      })
-      .filter(c => c.domain || c.label);
-    if (myCustomers.length) {
-      data.ownership = data.ownership || {};
-      data.ownership.customers_mine = myCustomers;
-    }
-    const notMine = [...document.querySelectorAll('#not-mine .not-mine-row')]
-      .map(row => {
-        const obj = {};
-        row.querySelectorAll('input').forEach(inp => obj[inp.dataset.key] = inp.value);
-        return obj;
-      })
-      .filter(c => c.domain || c.label);
-    if (notMine.length) {
-      data.ownership = data.ownership || {};
-      data.ownership.customers_not_mine = notMine;
-    }
-
     if (token) data.token = token;
     return data;
   }
@@ -822,7 +702,7 @@ import PageLayout from '../layouts/PageLayout.astro';
     const btn = document.getElementById('submit-btn');
     if (!btn) return;
     btn.disabled = true;
-    btn.textContent = 'Submitting…';
+    btn.textContent = 'Building…';
     const payload = collectFormData();
     try {
       const r = await fetch('https://onboarding-worker.1404-io.workers.dev/onboarding/submit', {
@@ -832,11 +712,11 @@ import PageLayout from '../layouts/PageLayout.astro';
       });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       document.getElementById('submit-result').classList.remove('hidden');
-      btn.textContent = 'Submitted';
+      btn.textContent = 'Built';
       localStorage.removeItem(STORAGE_KEY);
     } catch (e) {
       btn.disabled = false;
-      btn.textContent = 'Submit — generate my brief';
+      btn.textContent = 'Build it →';
       alert(`Submit failed: ${e.message}. Your answers are saved locally — try again.`);
       console.error(e);
     }
@@ -884,30 +764,18 @@ import PageLayout from '../layouts/PageLayout.astro';
         const v = obj[k];
         if (v && typeof v === 'object' && !Array.isArray(v)) flattenSet(path, v);
         else if (Array.isArray(v) && v.length && typeof v[0] === 'object') {
-          // Handled separately for direct_reports / customers / etc.
+          // Handled separately for direct_reports
         } else setVal(path, v);
       }
     }
     flattenSet('', draft);
 
-    // Surface calibration questions so user knows what to fill
-    const calQs = draft._calibration_questions || [];
-    if (calQs.length) {
-      const ul = document.getElementById('calibration-questions');
-      const wrap = document.getElementById('calibration-list');
-      if (ul && wrap) {
-        ul.innerHTML = calQs.map(q => `<li>${q}</li>`).join('');
-        wrap.classList.remove('hidden');
-      }
-    }
-
-    // Apply nested arrays (direct reports + customers)
+    // Apply nested arrays (direct reports)
     function fillNestedRows(containerId, arr) {
       const container = document.getElementById(containerId);
       if (!container || !Array.isArray(arr) || !arr.length) return;
       const template = container.firstElementChild;
       if (!template) return;
-      // Clear initial blank row, repopulate
       container.innerHTML = '';
       arr.forEach(item => {
         const row = template.cloneNode(true);
@@ -924,8 +792,6 @@ import PageLayout from '../layouts/PageLayout.astro';
       });
     }
     fillNestedRows('reports-list', draft.org?.direct_reports);
-    fillNestedRows('my-customers', draft.ownership?.customers_mine);
-    fillNestedRows('not-mine', draft.ownership?.customers_not_mine);
   }
 
   // Render trigger menu
@@ -947,16 +813,6 @@ import PageLayout from '../layouts/PageLayout.astro';
       {key: 'title', placeholder: 'Title'},
       {key: 'lane', placeholder: 'Lane'},
     ]);
-    setupAddRow('add-my-customer', 'my-customers', [
-      {key: 'domain', placeholder: '@customer.com'},
-      {key: 'label', placeholder: 'Customer name'},
-      {key: 'weight', placeholder: '0.0–1.0'},
-    ]);
-    setupAddRow('add-not-mine', 'not-mine', [
-      {key: 'domain', placeholder: '@customer.com'},
-      {key: 'label', placeholder: 'Customer name'},
-      {key: 'owner', placeholder: 'Who owns it'},
-    ]);
 
     document.querySelectorAll('.advance-btn, .back-btn').forEach(btn => {
       btn.addEventListener('click', () => showStep(btn.dataset.target));
@@ -972,4 +828,3 @@ import PageLayout from '../layouts/PageLayout.astro';
     maybePrefill();
   });
 </script>
-</PageLayout>
