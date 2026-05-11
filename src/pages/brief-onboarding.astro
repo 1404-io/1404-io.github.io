@@ -16,11 +16,17 @@ import PageLayout from '../layouts/PageLayout.astro';
         Build your daily brief.
       </h1>
       <p class="text-text-body text-lg leading-relaxed mb-6">
-        8 questions, about 5 minutes. We'll send your first brief to your inbox tomorrow morning.
+        8 questions, about 10 minutes. We'll send your first brief to your inbox tomorrow morning.
       </p>
       <div id="prefill-banner" class="hidden mb-6 p-4 border border-copper rounded-sm bg-bg-card">
         <p class="font-mono text-xs text-copper tracking-wide mb-2">PRE-FILLED FROM OUR CALLS</p>
         <p class="text-text-body text-sm">We've drafted answers where we could. Highlighted in copper — confirm or change.</p>
+      </div>
+      <div class="mb-6 p-4 border-l-2 border-copper bg-bg-card">
+        <p class="font-mono text-xs text-copper tracking-wide mb-2">WHAT YOU GET, WHEN</p>
+        <p class="text-text-body text-sm leading-relaxed">
+          Day 1 brief reads from your email, calendar, and what you tell us here. The numbers from your accounting system (cash, AR, margin) come online once we connect it — usually 7–10 days. Project and operations tools (workload, materials, schedule, pipeline) take 30–45 days. Brief gets stronger as each piece connects.
+        </p>
       </div>
       <p class="text-text-secondary text-sm mb-8">
         Your answers go directly to your 1404 onboarder. Nothing is shared externally.
@@ -41,19 +47,18 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
     </div>
 
-    <!-- Step 1: Vision (the wishlist) -->
-    <div id="step-1" class="onboarding-step hidden" data-section="Your ideal morning" data-step="1">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Your ideal morning</h2>
-      <p class="text-text-body mb-6">What would your morning look like if your daily brief was actually working? Be specific.</p>
+    <!-- Step 1: Morning behavior + day-blocker -->
+    <div id="step-1" class="onboarding-step hidden" data-section="Your morning" data-step="1">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Your morning</h2>
 
-      <label class="form-label">
-        <textarea name="wishlist.future_state" class="form-input mb-8" rows="6"></textarea>
+      <label class="form-label mb-8">What's the first thing you check on your phone in the morning?
+        <p class="text-text-muted text-xs mb-2">Texts, email, schedule, news, weather, something else. And what are you usually looking for in it?</p>
+        <textarea name="wishlist.morning_routine" class="form-input" rows="5"></textarea>
       </label>
 
-      <p class="text-text-body mb-4">What's the one thing — a number, a person, an event — you want to see first, every day?</p>
-
-      <label class="form-label">
-        <textarea name="wishlist.one_thing" class="form-input" rows="3"></textarea>
+      <label class="form-label">What's the one thing where, if you didn't know about it before 8am, your day would be a mess?
+        <p class="text-text-muted text-xs mb-2">A person not showing up, an inspector arriving, a check bouncing, a major customer escalating — whatever the "oh no" is for you.</p>
+        <textarea name="wishlist.day_blocker" class="form-input" rows="3"></textarea>
       </label>
 
       <div class="step-nav">
@@ -79,14 +84,14 @@ import PageLayout from '../layouts/PageLayout.astro';
           <input type="text" name="identity.title" class="form-input" required placeholder="VP of Operations / CEO / etc." />
         </label>
 
-        <label class="form-label full">In one sentence, what's your job?
-          <textarea name="identity.role_summary" class="form-input" rows="2" placeholder="Run X end-to-end, allocate capital, set strategic direction" required></textarea>
+        <label class="form-label full">What do you actually do day-to-day?
+          <p class="text-text-muted text-xs mb-2">Doesn't have to match your title. Plain words are fine.</p>
+          <textarea name="identity.role_summary" class="form-input" rows="2" required></textarea>
         </label>
 
-        <label class="form-label full">Three outcomes you're measured on
-          <input type="text" name="identity.outcomes_measured.0" class="form-input mb-2" placeholder="Outcome 1" />
-          <input type="text" name="identity.outcomes_measured.1" class="form-input mb-2" placeholder="Outcome 2" />
-          <input type="text" name="identity.outcomes_measured.2" class="form-input" placeholder="Outcome 3" />
+        <label class="form-label full">What does a good week look like for you? How do you know you had one?
+          <p class="text-text-muted text-xs mb-2">Same idea as "what are you measured on" but said the way you'd actually say it.</p>
+          <textarea name="identity.good_week" class="form-input" rows="3"></textarea>
         </label>
       </div>
 
@@ -97,12 +102,12 @@ import PageLayout from '../layouts/PageLayout.astro';
     </div>
 
     <!-- Step 3: Tuesday morning -->
-    <div id="step-3" class="onboarding-step hidden" data-section="A normal Tuesday morning" data-step="3">
-      <h2 class="font-display text-3xl text-text-primary mb-6">A normal Tuesday morning</h2>
-      <p class="text-text-body mb-6">Walk through it. When you wake, when you check email, where you read the brief, what you do with it, your first meeting, who you see first.</p>
+    <div id="step-3" class="onboarding-step hidden" data-section="A normal Tuesday" data-step="3">
+      <h2 class="font-display text-3xl text-text-primary mb-6">A normal Tuesday</h2>
+      <p class="text-text-body mb-6">Walk us through it, from when you wake up to when you sit down at your desk or get to your first appointment. Who do you talk to? What do you check? What's usually waiting for you when you get there?</p>
 
       <label class="form-label">
-        <textarea name="morning_workflow.tuesday_morning" class="form-input" rows="8" placeholder="I wake at 5:30, do email on my phone in bed, get to the office around 7. First thing I do is check..."></textarea>
+        <textarea name="morning_workflow.tuesday_morning" class="form-input" rows="8" placeholder="I wake at 5:30, check phone in bed, drive to the office or first job around 7. By the time I get there..."></textarea>
       </label>
 
       <div class="step-nav">
@@ -111,25 +116,28 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
     </div>
 
-    <!-- Step 4: Team — direct report lanes -->
-    <div id="step-4" class="onboarding-step hidden" data-section="Your team" data-step="4">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Your team</h2>
-      <p class="text-text-body mb-6">For each direct report — name, email, title, and what they own. Names auto-fill from M365 once we connect; until then, fill what you know.</p>
+    <!-- Step 4: Who you work with -->
+    <div id="step-4" class="onboarding-step hidden" data-section="Who you work with" data-step="4">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Who you work with</h2>
 
-      <div id="reports-list">
-        <div class="report-row">
-          <input type="text" class="form-input" placeholder="Name" data-key="name" />
-          <input type="email" class="form-input" placeholder="Email" data-key="email" />
-          <input type="text" class="form-input" placeholder="Title" data-key="title" />
-          <input type="text" class="form-input" placeholder="Lane (what they own)" data-key="lane" />
-        </div>
-      </div>
-      <button id="add-report" class="text-copper text-sm hover:text-copper-bright mt-2" type="button">+ Add another</button>
-
-      <label class="form-label mt-8">Or just describe the group
-        <p class="text-text-muted text-xs mb-2">If naming everyone is too much, say it in one line — "all of ops", "the four division heads", "everyone in Industrial", "everyone". We'll resolve names from M365 later.</p>
-        <input type="text" name="org.direct_reports_group" class="form-input" placeholder="all of ops" />
+      <label class="form-label">In one or two lines, who do you work with most?
+        <p class="text-text-muted text-xs mb-2">Names are great if it's a small group. If it's bigger, just describe it — "the field crew", "the office team", "the four division heads", "everyone in ops". M365 fills in the rest later.</p>
+        <textarea name="org.direct_reports_group" class="form-input" rows="3"></textarea>
       </label>
+
+      <details class="mt-8">
+        <summary class="text-copper text-sm cursor-pointer hover:text-copper-bright">Want to list direct reports individually? Click to expand.</summary>
+        <p class="text-text-muted text-xs mt-3 mb-3">Name, email, title, and what each one owns. Skip any field you don't have handy.</p>
+        <div id="reports-list">
+          <div class="report-row">
+            <input type="text" class="form-input" placeholder="Name" data-key="name" />
+            <input type="email" class="form-input" placeholder="Email" data-key="email" />
+            <input type="text" class="form-input" placeholder="Title" data-key="title" />
+            <input type="text" class="form-input" placeholder="What they own" data-key="lane" />
+          </div>
+        </div>
+        <button id="add-report" class="text-copper text-sm hover:text-copper-bright mt-2" type="button">+ Add another</button>
+      </details>
 
       <div class="step-nav">
         <button class="back-btn" data-target="step-3">&larr; Back</button>
@@ -137,26 +145,25 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
     </div>
 
-    <!-- Step 5: What's in the brief -->
-    <div id="step-5" class="onboarding-step hidden" data-section="What's in your brief" data-step="5">
-      <h2 class="font-display text-3xl text-text-primary mb-6">What's in your brief</h2>
-      <p class="text-text-body mb-6">Pick the sections you want, day one. Click to include.</p>
+    <!-- Step 5: 3 things on a page -->
+    <div id="step-5" class="onboarding-step hidden" data-section="Three things on a page" data-step="5">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Three things on a page</h2>
+      <p class="text-text-body mb-6">If we put 3 things on a single page that you'd want to see every morning, what would they be?</p>
 
-      <div id="sections-grid" class="sections-grid">
-        <!-- Populated via JS from SECTION_CATALOG -->
-      </div>
+      <label class="form-label">
+        <p class="text-text-muted text-xs mb-2">Examples from real briefs: today's jobs and crews, who's out, AR over 30 days, weather and forecast, jobs running over budget, callbacks waiting. Whatever matters to you.</p>
+        <input type="text" name="brief_priorities.0" class="form-input mb-2" placeholder="The most important thing" />
+        <input type="text" name="brief_priorities.1" class="form-input mb-2" placeholder="The second" />
+        <input type="text" name="brief_priorities.2" class="form-input" placeholder="The third" />
+      </label>
 
-      <fieldset class="form-label mt-8">First thing you scan?
-        <select name="sections.hero_section" class="form-input"></select>
-      </fieldset>
-
-      <fieldset class="form-label">Section that, if removed, breaks the brief?
-        <select name="sections.load_bearing" class="form-input"></select>
-      </fieldset>
-
-      <p class="text-text-secondary text-sm mt-6">
-        Day-1 brief reads from email, calendar, and what you tell us. Numbers from your accounting system (cash, AR, margin, EBITDA) come online once we connect it — usually 7–10 days. Project and operations tools (workload, materials, schedule, pipeline) take 30–45 days. We'll come back for those KPIs then.
-      </p>
+      <details class="mt-8">
+        <summary class="text-copper text-sm cursor-pointer hover:text-copper-bright">Or pick from common sections (optional)</summary>
+        <p class="text-text-muted text-xs mt-3 mb-3">Pre-built sections we already know how to render. Pick any that match what you wrote above.</p>
+        <div id="sections-grid" class="sections-grid">
+          <!-- Populated via JS from SECTION_CATALOG -->
+        </div>
+      </details>
 
       <div class="step-nav">
         <button class="back-btn" data-target="step-4">&larr; Back</button>
@@ -164,24 +171,27 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
     </div>
 
-    <!-- Step 6: Triggers + KPIs -->
-    <div id="step-6" class="onboarding-step hidden" data-section="Triggers and numbers" data-step="6">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Triggers and numbers</h2>
+    <!-- Step 6: What should interrupt you -->
+    <div id="step-6" class="onboarding-step hidden" data-section="What should interrupt you" data-step="6">
+      <h2 class="font-display text-3xl text-text-primary mb-6">What should interrupt you</h2>
 
-      <fieldset class="form-label">Alerts that should stop your day. Pick what fits.
-        <div id="trigger-grid" class="checkbox-group"></div>
-      </fieldset>
-
-      <label class="form-label mt-4">Other alerts (one per line)
-        <textarea name="red_flags_custom" class="form-input" rows="3" placeholder="OSHA notice on any site&#10;Key foreman walks off"></textarea>
+      <label class="form-label">What's the kind of thing where you'd want a text or call right now, not tomorrow?
+        <p class="text-text-muted text-xs mb-2">A job got shut down, a customer is angry, payroll is short, someone got hurt, a check bounced, an inspector showed up — whatever the "interrupt me" list is for you.</p>
+        <textarea name="red_flags_custom" class="form-input" rows="4"></textarea>
       </label>
 
-      <label class="form-label mt-6">Numbers you watch (up to 4)
-        <p class="text-text-muted text-xs mb-2">These become the KPI tiles at the top of your brief. Use what we can compute from email + calendar today; financial KPIs (cash, AR, EBITDA) come online when accounting connects.</p>
-        <input type="text" name="kpis_top.0" class="form-input mb-2" placeholder="Active jobs (count)" />
-        <input type="text" name="kpis_top.1" class="form-input mb-2" placeholder="Direct report response time" />
-        <input type="text" name="kpis_top.2" class="form-input mb-2" placeholder="Open bids / RFPs (count)" />
-        <input type="text" name="kpis_top.3" class="form-input" placeholder="Customers > 30 days dark" />
+      <details class="mt-6">
+        <summary class="text-copper text-sm cursor-pointer hover:text-copper-bright">Or pick from common alerts (optional)</summary>
+        <p class="text-text-muted text-xs mt-3 mb-3">Built-in alerts we already know how to detect.</p>
+        <div id="trigger-grid" class="checkbox-group"></div>
+      </details>
+
+      <label class="form-label mt-8">Numbers you check regularly, or wish you did
+        <p class="text-text-muted text-xs mb-2">Revenue, hours billed, jobs open, AR — anything. If none come to mind right now, leave blank. We'll suggest some after the first brief.</p>
+        <input type="text" name="kpis_top.0" class="form-input mb-2" />
+        <input type="text" name="kpis_top.1" class="form-input mb-2" />
+        <input type="text" name="kpis_top.2" class="form-input mb-2" />
+        <input type="text" name="kpis_top.3" class="form-input" />
       </label>
 
       <div class="step-nav">
@@ -194,22 +204,22 @@ import PageLayout from '../layouts/PageLayout.astro';
     <div id="step-7" class="onboarding-step hidden" data-section="Rhythm and format" data-step="7">
       <h2 class="font-display text-3xl text-text-primary mb-6">Rhythm and format</h2>
 
-      <fieldset class="form-label">Tone
+      <fieldset class="form-label">How much detail?
         <div class="radio-card-group mt-3">
           <label class="radio-card">
             <input type="radio" name="format.tone" value="add_friendly" />
-            <strong>ADD-friendly</strong>
-            <span>3–5 items per section, action-first, scannable, color-coded approvals.</span>
+            <strong>Short and punchy</strong>
+            <span>Just the headlines.</span>
           </label>
           <label class="radio-card">
             <input type="radio" name="format.tone" value="exec_strategic" checked />
-            <strong>Exec strategic</strong>
-            <span>BLUF + KPIs + risks + drilldowns. 5–7 sections, more analysis.</span>
+            <strong>Medium</strong>
+            <span>Headlines plus a little context.</span>
           </label>
           <label class="radio-card">
             <input type="radio" name="format.tone" value="deep_data" />
-            <strong>Deep data</strong>
-            <span>Workbook-style with all tables expanded. Use this if you like to dig.</span>
+            <strong>Detailed</strong>
+            <span>Numbers and the why behind them.</span>
           </label>
         </div>
       </fieldset>
@@ -227,22 +237,6 @@ import PageLayout from '../layouts/PageLayout.astro';
             <label><input type="radio" name="delivery.cadence" value="on_demand" /> On-demand only</label>
           </div>
         </fieldset>
-
-        <fieldset class="form-label">Where do you read it?
-          <div class="radio-group">
-            <label><input type="radio" name="morning_workflow.device" value="laptop" checked /> Laptop</label>
-            <label><input type="radio" name="morning_workflow.device" value="phone" /> Phone</label>
-            <label><input type="radio" name="morning_workflow.device" value="printed" /> Printed</label>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-label">How long do you give it?
-          <div class="radio-group">
-            <label><input type="radio" name="morning_workflow.scan_time_minutes" value="5" /> 5 min — gimme the answer</label>
-            <label><input type="radio" name="morning_workflow.scan_time_minutes" value="10" checked /> 10 min — quick scan</label>
-            <label><input type="radio" name="morning_workflow.scan_time_minutes" value="20" /> 20 min — I'll dig in</label>
-          </div>
-        </fieldset>
       </div>
 
       <div class="step-nav">
@@ -251,11 +245,11 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
     </div>
 
-    <!-- Step 8: Boundaries -->
-    <div id="step-8" class="onboarding-step hidden" data-section="Boundaries" data-step="8">
-      <h2 class="font-display text-3xl text-text-primary mb-6">Boundaries</h2>
+    <!-- Step 8: Who else should see this -->
+    <div id="step-8" class="onboarding-step hidden" data-section="Who else should see this" data-step="8">
+      <h2 class="font-display text-3xl text-text-primary mb-6">Who else should see this?</h2>
 
-      <fieldset class="form-label">Who can see this brief besides you?
+      <fieldset class="form-label">Pick anyone the brief should also go to.
         <div class="checkbox-group">
           <label><input type="checkbox" name="boundaries.shared_with" value="self" checked /> Just me</label>
           <label><input type="checkbox" name="boundaries.shared_with" value="EA" /> My EA</label>
