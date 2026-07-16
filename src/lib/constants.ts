@@ -61,8 +61,8 @@ export const PHASES = [
 // Why the partnership is different. Source: intro one-pager.
 export const DIFFERENTIATORS = [
   { title: 'One flat retainer.', body: 'Bring us any priority and we build it. Your monthly number stays the same, so you can plan with confidence and ask for as much as you need.' },
-  { title: 'We share in the upside we create.', body: 'Beyond the retainer, we earn a share of the value we build each quarter. Our reward grows as yours does, so we are aligned with your results.' },
-  { title: 'Forward-deployed, on-site with you.', body: 'During Foundation we set up in your office to get your people and systems ready. Through the Partnership we come into the shop regularly and build alongside your team.' },
+  { title: 'We share in the upside we create.', body: 'Beyond the retainer, we share in the value we create together. Our reward grows as yours does.' },
+  { title: 'Forward-deployed, on-site with you.', body: 'During Foundation we set up in your office to get your people and systems ready. Through the Partnership we come on-site regularly and build alongside your team. We work with companies across the US, and sometimes beyond.' },
   { title: 'Built for the long term.', body: 'We stay with you and keep improving what we build as your business grows.' },
 ] as const;
 
