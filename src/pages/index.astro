@@ -4,104 +4,97 @@ import Hero from '../components/Hero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import CTABanner from '../components/CTABanner.astro';
 import ClientLogos from '../components/ClientLogos.astro';
-import { SUITES } from '../lib/constants';
+import { PHASES, DIFFERENTIATORS, PROCESS } from '../lib/constants';
 ---
 
 <PageLayout
-  title="1404 — AI Agents for Business Operations"
-  description="AI agent teams that handle executive operations, financial intelligence, business development, acquisitions, and exit preparation. Purpose-built for your business, connected to your systems, managed by us."
+  title="1404 — A transformational technology partner"
+  description="Forward-deployed software engineers who work inside your business, building and running an AI strategy aligned with your growth plan. We work on a flat retainer and share in the upside we create together."
 >
   <!-- Hero -->
   <Hero />
 
-  <!-- What We Build -->
+  <!-- MIT / strategy band -->
   <section class="max-w-5xl mx-auto px-6 py-24 md:py-32">
-    <SectionHeading title="What we build" />
-
-    <div class="space-y-6 text-text-body text-base leading-relaxed mb-16">
-      <p>
-        We build agent teams — groups of specialized AI workers that take over specific operational functions in your company. You tell us what's eating your time. We build a team of agents trained on your business, connect them to your existing systems, and manage them on an ongoing basis.
+    <div class="border-l-2 border-copper pl-8 md:pl-10">
+      <p class="text-text-body text-lg md:text-xl leading-relaxed">
+        <span class="text-text-primary font-medium">About 95% of enterprise AI efforts deliver no return.</span> That's the finding of MIT's 2025 study, <span class="text-text-primary font-medium">"The GenAI Divide."</span> The tools work. What MIT found is that generic tools <span class="italic text-text-primary">"stall in enterprise use since they don't learn from or adapt to workflows."</span> A stack of tools is not a strategy. AI is a strategy, and it only becomes meaningful when it's built around how your business runs, and refined over time. That's what we do.
       </p>
-      <p>
-        Each agent team handles a different function. Some handle the daily executive workload — email triage, morning reports, meeting prep. Others handle financial analysis, or business development, or acquisition research. They run continuously and get better over time because they're learning your business as they work. We offer two ways to work with us.
-      </p>
-    </div>
-
-    <!-- Two Tiers -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-
-      <!-- Agent Suites -->
-      <div class="border border-border rounded-sm p-8 bg-bg-card">
-        <p class="font-mono text-xs text-copper mb-4 tracking-wide">AGENT SUITES</p>
-        <h3 class="font-display text-2xl text-text-primary mb-4">Pick the function you need handled</h3>
-        <p class="text-text-body text-base leading-relaxed mb-6">
-          Each suite is a team of agents built for a specific operational function. Start with the one that solves your biggest problem. Add more when you're ready.
-        </p>
-        <a href="/agents" class="text-sm text-copper hover:text-copper-bright transition-colors duration-200">
-          See all suites &rarr;
-        </a>
-      </div>
-
-      <!-- Partnership -->
-      <div class="border border-copper-dim rounded-sm p-8 bg-bg-card">
-        <p class="font-mono text-xs text-copper mb-4 tracking-wide">PARTNERSHIP</p>
-        <h3 class="font-display text-2xl text-text-primary mb-4">An embedded technology team</h3>
-        <p class="text-text-body text-base leading-relaxed mb-6">
-          Technology strategy, custom engineering, every agent suite, and a research function that monitors what's coming in your industry. For companies that want a dedicated technology and modernization team without building one internally.
-        </p>
-        <a href="/partnership" class="text-sm text-copper hover:text-copper-bright transition-colors duration-200">
-          Learn more &rarr;
-        </a>
-      </div>
     </div>
   </section>
 
-  <!-- The Suites -->
+  <!-- What we do -->
   <section class="border-t border-border">
     <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
-      <SectionHeading
-        title="Agent Suites"
-        subtitle="Each suite is a team of specialized agents trained on your business and connected to your systems."
-      />
+      <SectionHeading title="What we do for you" />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        {PHASES.map((phase) => (
+          <div class="border border-copper-dim rounded-sm p-8 bg-bg-card">
+            <p class="font-mono text-xs text-copper mb-4 tracking-wide uppercase">{phase.kicker}</p>
+            <h3 class="font-display text-2xl md:text-3xl text-text-primary mb-3">{phase.title}</h3>
+            <p class="text-text-body text-base leading-relaxed">{phase.descriptor}</p>
+          </div>
+        ))}
+      </div>
+      <a href="/partnership" class="text-sm text-copper hover:text-copper-bright transition-colors duration-200">
+        See how the partnership works &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Why it's different -->
+  <section class="border-t border-border">
+    <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
+      <SectionHeading title="Why it's different" />
 
       <div class="space-y-10">
-        {SUITES.map((suite) => (
-          <a href={`/agents/${suite.slug}`} class="block group">
-            <div class="border border-border-light rounded-sm p-8 bg-bg-card hover:border-copper-dim transition-colors duration-200">
-              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                <h3 class="font-display text-xl text-text-primary group-hover:text-copper transition-colors duration-200">
-                  {suite.name}
-                </h3>
-                <p class="text-xs text-text-muted font-mono shrink-0">
-                  Replaces: {suite.replaces}
-                </p>
-              </div>
-              <p class="text-text-secondary text-sm leading-relaxed">
-                {suite.short}
-              </p>
-            </div>
-          </a>
+        {DIFFERENTIATORS.map((d) => (
+          <div class="border-l-2 border-copper-dim pl-8">
+            <h3 class="font-display text-xl md:text-2xl text-text-primary mb-2">{d.title}</h3>
+            <p class="text-text-body text-base leading-relaxed max-w-3xl">{d.body}</p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Why This Works -->
+  <!-- How we work -->
   <section class="border-t border-border">
     <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
-      <SectionHeading title="Why this works" />
+      <SectionHeading
+        title="How we work"
+        subtitle="Every problem, the same way."
+      />
 
-      <div class="space-y-6 text-text-body text-base leading-relaxed mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-10">
+        {PROCESS.map((p, i) => (
+          <div>
+            <p class="font-mono text-3xl md:text-4xl text-copper mb-4 tracking-wide">0{i + 1}</p>
+            <h3 class="font-display text-2xl text-text-primary mb-3">{p.step}</h3>
+            <p class="text-text-body text-base leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+      <a href="/how-it-works" class="text-sm text-copper hover:text-copper-bright transition-colors duration-200">
+        See how we build &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Proof: The Construct Group -->
+  <section class="border-t border-border">
+    <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
+      <SectionHeading title="Built inside a real operating company" />
+
+      <div class="space-y-6 text-text-body text-base leading-relaxed mb-12 max-w-3xl">
         <p>
-          Most companies have tried some version of AI at this point, and the experience is usually the same — interesting but not operational. It can answer questions, but it doesn't actually do work inside your business.
-        </p>
-        <p>
-          The difference is in how an agent is built. A language model on its own can answer questions, but it can't do anything about the answers — it has no access to your email, financials, CRM, or project tools. What makes an agent operational is connecting it to those systems and then training it on how your business actually works. That's what we do — we build purpose-built teams that know your business and handle work from start to finish.
+          The Construct Group, a national retail fixture installation company, was our first partner. We built their technology from the ground up, and it worked well enough that they came on as an equity partner.
         </p>
       </div>
 
-      <a href="/how-it-works" class="text-sm text-copper hover:text-copper-bright transition-colors duration-200">
-        See exactly how it works &rarr;
+      <a href="/case-studies/tcg" class="text-sm text-copper hover:text-copper-bright transition-colors duration-200">
+        Read the full case study &rarr;
       </a>
     </div>
   </section>
@@ -109,16 +102,16 @@ import { SUITES } from '../lib/constants';
   <!-- Trust -->
   <section class="border-t border-border">
     <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
-      <SectionHeading title="Built for enterprise" />
+      <SectionHeading title="Built for the businesses that run due diligence" />
 
-      <p class="text-text-body text-base leading-relaxed mb-12">
-        We operate inside your infrastructure — financials, email, project data. That level of access requires security and compliance infrastructure that most firms our size don't build until much later. We started early because the companies we want to work with run due diligence before granting that kind of access.
+      <p class="text-text-body text-base leading-relaxed mb-12 max-w-3xl">
+        We work inside your infrastructure. Financials, email, project data. That level of access calls for real security and compliance, so we built it early. The companies we want to work with check before they grant that kind of access, and we want them to.
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
         <div class="border border-border-light rounded-sm px-5 py-4 bg-bg-card">
           <p class="font-mono text-xs text-copper mb-1 tracking-wide">SOC 2 Type II</p>
-          <p class="text-text-secondary text-sm">In progress — Q3 2026</p>
+          <p class="text-text-secondary text-sm">In progress</p>
         </div>
         <div class="border border-border-light rounded-sm px-5 py-4 bg-bg-card">
           <p class="font-mono text-xs text-copper mb-1 tracking-wide">Security Policies</p>
@@ -136,26 +129,6 @@ import { SUITES } from '../lib/constants';
 
       <a href="/trust" class="text-sm text-copper hover:text-copper-bright transition-colors duration-200">
         Full security and compliance details &rarr;
-      </a>
-    </div>
-  </section>
-
-  <!-- Backed by TCG -->
-  <section class="border-t border-border">
-    <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
-      <SectionHeading title="Backed by The Construct Group" />
-
-      <div class="space-y-6 text-text-body text-base leading-relaxed mb-12">
-        <p>
-          1404 was built inside a real operating company. The Construct Group — a national retail fixture installation company — was our first client and became an equity partner after we built their entire technology infrastructure from scratch. A unified operations platform with 12 integrated modules, AI agent teams running daily executive operations, and ongoing technology leadership.
-        </p>
-        <p>
-          TCG continues to operate on our platform and agent infrastructure, and their CEO actively refers other operators to 1404 — which is how most of our clients find us. The agent architecture, security model, and delivery process were all built and validated in production with TCG before we took a second client.
-        </p>
-      </div>
-
-      <a href="/case-studies/tcg" class="text-sm text-copper hover:text-copper-bright transition-colors duration-200">
-        Read the full case study &rarr;
       </a>
     </div>
   </section>
