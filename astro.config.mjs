@@ -13,6 +13,10 @@ export default defineConfig({
         !page.includes('/brief-onboarding'),
     }),
   ],
+  redirects: {
+    '/privacy': '/legal/privacy',
+    '/terms': '/legal/terms',
+  },
   vite: {
     plugins: [tailwindcss()],
   },

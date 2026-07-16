@@ -3,18 +3,26 @@ import PageLayout from '../layouts/PageLayout.astro';
 ---
 
 <PageLayout
-  title="Trust & Security — 1404 | Security, Compliance, and AI Governance"
-  description="SOC 2 Type II in progress, 14 security policies, AI governance framework, client isolation architecture, and enterprise-ready legal documentation."
+  title="Trust & Security | 1404"
+  description="SOC 2 Type II examination in progress. How 1404 protects client data: encryption, access control, AWS hosting, subprocessors, and how to request our security documentation."
 >
   <section class="max-w-4xl mx-auto px-6 pt-40 pb-24 md:pb-32">
 
-    <!-- Header -->
+    <!-- Hero / Overview -->
     <header class="mb-20">
       <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-text-primary leading-tight">
-        Trust & Security
+        Trust and Security
       </h1>
       <p class="text-text-secondary text-lg mt-6 leading-relaxed max-w-3xl">
-        We operate inside client infrastructure. We access financials, email, project data, and business-critical systems. That level of access requires a security and compliance posture that matches what enterprise clients expect, regardless of firm size. Here is exactly what we've built, what we're actively working on, and what's coming next.
+        We work inside client systems and handle financial, email, project, and operational data. That level of access sets the bar for how we run security, and we hold ourselves to it. This page states what is true today, backed by evidence you can request. Anything that is not issued, measured, or documented is not on this page.
+      </p>
+    </header>
+
+    <!-- Compliance Status + Trust Center -->
+    <div class="mb-20">
+      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Compliance Status</h2>
+      <p class="text-text-body text-base leading-relaxed max-w-3xl">
+        Our SOC 2 Type II examination is in progress with Sensiba LLP, an AICPA-licensed firm. The observation window runs 1 June to 31 August 2026, and the report will be available under NDA once it is issued. We use Vanta for continuous control monitoring, and our live Trust Center is the single source of truth for our current status and evidence.
       </p>
       <div class="mt-8 flex flex-col sm:flex-row gap-4">
         <a
@@ -23,209 +31,15 @@ import PageLayout from '../layouts/PageLayout.astro';
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 border border-copper text-copper hover:bg-copper hover:text-bg-primary transition-colors duration-200 px-6 py-3 rounded-sm text-sm font-mono tracking-wide"
         >
-          View Live Trust Center
+          View our Vanta Trust Center
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
           </svg>
         </a>
-        <a
-          href="mailto:security@1404.io"
-          class="inline-flex items-center gap-2 border border-border text-text-secondary hover:text-text-primary hover:border-text-primary transition-colors duration-200 px-6 py-3 rounded-sm text-sm font-mono tracking-wide"
-        >
-          Contact Security Team
-        </a>
       </div>
       <p class="text-text-muted text-xs mt-4">
-        Real-time control monitoring powered by Vanta. Request our SOC 2 report, signed policies, and compliance documentation via the Trust Center.
+        Request our SOC 2 report, signed policies, and security documentation under NDA through the Trust Center or at security@1404.io.
       </p>
-    </header>
-
-    <!-- Compliance Status -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-8">Compliance Status</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="border border-border rounded-sm px-6 py-5 bg-bg-card">
-          <p class="font-mono text-xs text-copper mb-2 tracking-wide">SOC 2 Type II</p>
-          <p class="text-text-secondary text-sm">In progress &mdash; report expected Q3 2026</p>
-        </div>
-        <div class="border border-border rounded-sm px-6 py-5 bg-bg-card">
-          <p class="font-mono text-xs text-copper mb-2 tracking-wide">NIST AI RMF</p>
-          <p class="text-text-secondary text-sm">Aligned</p>
-        </div>
-        <div class="border border-border rounded-sm px-6 py-5 bg-bg-card">
-          <p class="font-mono text-xs text-copper mb-2 tracking-wide">GDPR DPA</p>
-          <p class="text-text-secondary text-sm">Production-ready, available on request</p>
-        </div>
-        <div class="border border-border rounded-sm px-6 py-5 bg-bg-card">
-          <p class="font-mono text-xs text-copper mb-2 tracking-wide">HIPAA BAA</p>
-          <p class="text-text-secondary text-sm">Production-ready, available on request</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- SOC 2 Compliance Timeline -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">SOC 2 Timeline</h2>
-      <p class="text-text-body text-base leading-relaxed mb-8">
-        We're pursuing SOC 2 Type II directly, skipping Type I. The observation window runs three months, followed by auditor fieldwork and the final report. Here's where we are in that process.
-      </p>
-
-      <div class="space-y-8">
-        <div class="border-l-2 border-copper pl-8">
-          <div class="flex items-baseline gap-3">
-            <p class="font-mono text-sm text-copper">April 2026</p>
-            <span class="text-xs text-text-muted bg-bg-surface px-2 py-0.5 rounded-sm">Current</span>
-          </div>
-          <p class="text-text-body text-base leading-relaxed mt-2">
-            14 security policies finalized. Vanta configuration and AWS integration (CloudTrail, Config, GuardDuty). Insurance binding. Background checks. Observation window begins.
-          </p>
-        </div>
-
-        <div class="border-l-2 border-copper-dim pl-8">
-          <p class="font-mono text-sm text-copper">May 2026</p>
-          <p class="text-text-body text-base leading-relaxed mt-2">
-            Third-party penetration test commissioned. AI Governance Framework formalized. Trust page published. SBOM generated. Agentic MSA attorney review.
-          </p>
-        </div>
-
-        <div class="border-l-2 border-copper-dim pl-8">
-          <p class="font-mono text-sm text-copper">June &ndash; July 2026</p>
-          <p class="text-text-body text-base leading-relaxed mt-2">
-            Pen test remediation and retest. SOC 2 auditor engagement. Observation window continues with continuous monitoring via Vanta. Q2 quarterly access review.
-          </p>
-        </div>
-
-        <div class="border-l-2 border-copper-dim pl-8">
-          <p class="font-mono text-sm text-copper">August &ndash; September 2026</p>
-          <p class="text-text-body text-base leading-relaxed mt-2">
-            Auditor fieldwork. SOC 2 Type II report issued with three-month observation window and clean audit.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Security Policies -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">14 Security Policies</h2>
-      <div class="space-y-4 text-text-body text-base leading-relaxed">
-        <p>
-          We have written 14 formal security policies that describe how we actually operate. These are not template documents purchased from a compliance vendor. Each one was written specifically for our infrastructure, our agent architecture, and our client delivery model.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mt-8">
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Information Security Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Access Control Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Acceptable Use Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Encryption Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Change Management Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Data Classification Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Data Retention &amp; Disposal Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Monitoring &amp; Logging Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Password &amp; Authentication Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Vendor Management Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Incident Response Plan</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Business Continuity &amp; Disaster Recovery</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Vulnerability Management Policy</span>
-        </p>
-        <p class="text-text-secondary text-sm flex items-start gap-3">
-          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-          <span>Personnel Security Policy</span>
-        </p>
-      </div>
-
-      <p class="text-text-muted text-sm mt-6">
-        All policies effective 2026-03-31. Annual review cycle. Enforced through technical controls where possible.
-      </p>
-    </div>
-
-    <!-- Evidence & Testing -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Evidence &amp; Testing</h2>
-      <p class="text-text-body text-base leading-relaxed mb-8">
-        Compliance is only credible if it's backed by evidence. We maintain 13 evidence artifacts that are continuously updated and available for auditor review.
-      </p>
-
-      <div class="space-y-4">
-        <div class="flex items-start gap-4 border border-border-light rounded-sm p-5 bg-bg-card">
-          <span class="font-mono text-xs text-copper mt-0.5 shrink-0 w-20">DR TEST</span>
-          <div>
-            <p class="text-text-body text-sm">Disaster recovery restoration test completed. Full system restored in 55 seconds against a 4-hour SLA target.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-4 border border-border-light rounded-sm p-5 bg-bg-card">
-          <span class="font-mono text-xs text-copper mt-0.5 shrink-0 w-20">VULN SCAN</span>
-          <div>
-            <p class="text-text-body text-sm">Vulnerability scan completed. Findings identified and tracked through remediation. GitHub Dependabot and CI pipeline scanning active.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-4 border border-border-light rounded-sm p-5 bg-bg-card">
-          <span class="font-mono text-xs text-copper mt-0.5 shrink-0 w-20">ACCESS</span>
-          <div>
-            <p class="text-text-body text-sm">Q1 2026 quarterly access review completed. SSH keys, Tailscale devices, GitHub membership, Mission Control accounts, and integration tokens all reviewed. 8 remediation actions taken.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-4 border border-border-light rounded-sm p-5 bg-bg-card">
-          <span class="font-mono text-xs text-copper mt-0.5 shrink-0 w-20">PEN TEST</span>
-          <div>
-            <p class="text-text-body text-sm">Third-party penetration test scheduled for Q2 2026. Scope: external network, web application, and API. Annual cadence thereafter.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Risk Assessment -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Risk Assessment</h2>
-      <div class="space-y-4 text-text-body text-base leading-relaxed">
-        <p>
-          We maintain a comprehensive risk register with over 25 identified risks across infrastructure, application, agent operations, and business continuity categories. Each risk is rated by likelihood and impact, mapped to specific controls, and tracked through remediation. A separate red-team exercise identified 56 attack vectors across the agent architecture, consolidated into a priority matrix with P0 through P3 ratings.
-        </p>
-        <p>
-          Critical and high-severity items have been addressed. The risk register is reviewed quarterly and updated when the architecture changes.
-        </p>
-      </div>
     </div>
 
     <!-- How We Protect Your Data -->
@@ -235,37 +49,30 @@ import PageLayout from '../layouts/PageLayout.astro';
       <div class="space-y-10">
 
         <div class="border-l-2 border-copper-dim pl-8">
-          <h3 class="font-display text-xl text-text-primary mb-3">Client Isolation</h3>
-          <p class="text-text-body text-base leading-relaxed">
-            Every client runs on dedicated infrastructure with five isolated Linux user tiers: admin, application runtime, agent service, per-client workers, and per-client MCP integration processes. Each tier has its own credentials, file permissions, and network egress rules. Your data physically cannot be accessed by another client's processes. This is an architectural constraint enforced by the operating system, not a policy that relies on software to enforce it.
-          </p>
-        </div>
-
-        <div class="border-l-2 border-copper-dim pl-8">
           <h3 class="font-display text-xl text-text-primary mb-3">Encryption</h3>
           <p class="text-text-body text-base leading-relaxed">
-            TLS 1.3 for all data in transit, with a minimum floor of TLS 1.2. AES-256 for all data at rest including EBS volumes, AWS Secrets Manager entries, and credential vaults. Encrypted backups with offsite storage and tested restoration procedures. Automatic certificate renewal via Caddy with HSTS enforcement.
+            Data is encrypted in transit with TLS 1.2 or higher, and at rest with AES-256 using AWS-managed keys (KMS).
           </p>
         </div>
 
         <div class="border-l-2 border-copper-dim pl-8">
-          <h3 class="font-display text-xl text-text-primary mb-3">Access Control</h3>
+          <h3 class="font-display text-xl text-text-primary mb-3">Access</h3>
           <p class="text-text-body text-base leading-relaxed">
-            Role-based access with least-privilege enforcement across every layer. MFA required for all administrative access. Per-user iptables egress filtering controls what each process can reach on the network. SSH key-pair authentication only, no password-based SSH. AWS root account protected with hardware MFA and never used for routine operations. Quarterly access reviews covering all credentials, devices, and memberships.
+            We enforce least-privilege, role-based access with MFA on administrative access, SSH key-only login, and hardware MFA on the AWS root account. Administrative access runs over a zero-trust private network, and access is reviewed periodically.
           </p>
         </div>
 
         <div class="border-l-2 border-copper-dim pl-8">
-          <h3 class="font-display text-xl text-text-primary mb-3">Credential Management</h3>
+          <h3 class="font-display text-xl text-text-primary mb-3">Hosting and Isolation</h3>
           <p class="text-text-body text-base leading-relaxed">
-            Three-tier credential vault architecture. Tier 1: root-owned CLI vaults with sudo wrapper pattern, so worker processes never see credential files directly. Tier 2: MCP integration credentials stored under dedicated UID-isolated users, inaccessible to agent processes via /proc. Tier 3: AWS Secrets Manager for tokens requiring rotation, synced every six hours. Agent processes have zero direct credential access at any tier.
+            Client environments run on AWS in US regions (us-east-1 and us-east-2), with per-client isolation designed in at the compute, IAM, key-management, and storage layers.
           </p>
         </div>
 
         <div class="border-l-2 border-copper-dim pl-8">
-          <h3 class="font-display text-xl text-text-primary mb-3">AI Agent Security</h3>
+          <h3 class="font-display text-xl text-text-primary mb-3">Backups and Recovery</h3>
           <p class="text-text-body text-base leading-relaxed">
-            Every AI agent operates in a sandboxed environment with restricted network access. API blocklists use three-layer enforcement across 11 categories — backend middleware, CLI wrappers, and RBAC roles — to prevent unauthorized operations. All DELETE endpoints, financial approvals, user management, and sensitive write operations are blocked by default. Agent instructions are immutable and cannot be modified at runtime by user input or prompt injection. All agent actions are audited and logged with full traceability, and all output is scrubbed for credential exposure before delivery.
+            We keep encrypted offsite backups alongside automated database backups. Our disaster recovery plan targets a 24-hour recovery time and recovery point objective, and it is tested at least annually.
           </p>
         </div>
 
@@ -275,259 +82,18 @@ import PageLayout from '../layouts/PageLayout.astro';
     <!-- AI Governance -->
     <div class="mb-20">
       <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">AI Governance</h2>
-      <div class="space-y-4 text-text-body text-base leading-relaxed">
-        <p>
-          We maintain a formal AI Governance Framework aligned with NIST AI RMF and ISO 42001. This framework governs how we build, deploy, monitor, and retire AI agents that have access to client systems. It is the operating manual for responsible agent deployment.
-        </p>
-        <ul class="space-y-3 ml-4 mt-2">
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span><strong class="text-text-primary">Agent inventory and classification</strong> &mdash; every agent in production is cataloged with defined scope, access permissions, and risk classification</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span><strong class="text-text-primary">Three-tier human oversight model</strong> &mdash; human-in-the-loop for high-risk actions (financial approvals, external communications), human-on-the-loop for moderate-risk (report generation, data analysis), full automation only for well-bounded routine tasks (email triage, status monitoring)</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span><strong class="text-text-primary">Incident classification for agentic AI</strong> &mdash; five severity levels covering hallucination, unauthorized action, data leakage, instruction drift, and prompt injection attempts</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span><strong class="text-text-primary">Model management</strong> &mdash; evaluation procedures, version tracking, rollback capabilities, and training data opt-out for all deployed models</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span><strong class="text-text-primary">Transparency and disclosure</strong> &mdash; clients are informed of what AI does, what it cannot do, where human judgment is applied, and what data flows through third-party model providers</span>
-          </li>
-        </ul>
-        <p class="mt-6">
-          <a href="mailto:security@1404.io?subject=AI%20Governance%20Framework%20Request" class="text-copper hover:text-copper-bright transition-colors duration-200">
-            Request the full framework &rarr;
-          </a>
-        </p>
-      </div>
+      <p class="text-text-body text-base leading-relaxed max-w-3xl">
+        Because our work is agent-based, we maintain an internal AI Governance Framework covering agent inventory, tiered human oversight, and AI incident classification. Its structure draws on the NIST AI Risk Management Framework. The full framework is available on request.
+      </p>
     </div>
 
-    <!-- Legal Readiness -->
+    <!-- Subprocessors -->
     <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Legal Readiness</h2>
-      <div class="space-y-4 text-text-body text-base leading-relaxed">
-        <p>
-          Our legal documentation is production-ready. MSA, DPA, HIPAA BAA, and SOW templates can be executed immediately. An Agentic MSA with AI-specific liability provisions is in development with attorney review.
-        </p>
-        <ul class="space-y-3 ml-4 mt-2">
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span><strong class="text-text-primary">Master Services Agreement (MSA)</strong> &mdash; includes AI disclosure clause, tiered pricing structure, SLA exhibit with 99.5% uptime commitment, and standard liability provisions</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span><strong class="text-text-primary">Data Processing Agreement (DPA)</strong> &mdash; GDPR-aligned, covers all personal data processing with defined retention periods, deletion procedures, subprocessor list, and data subject rights</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span><strong class="text-text-primary">HIPAA Business Associate Agreement (BAA)</strong> &mdash; 45 CFR 164.504 compliant, 9 mandatory provisions, AI-specific language for PHI access, subcontractor BAA flow-down</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span><strong class="text-text-primary">Statement of Work (SOW) templates</strong> &mdash; standardized engagement scoping with deliverables, milestones, acceptance criteria, and payment terms</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span><strong class="text-text-primary">Agentic MSA</strong> &mdash; in development, covers AI-specific liability allocation, autonomy tier definitions, insurance requirements, and incident response provisions specific to autonomous agent systems</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Insurance -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Insurance</h2>
-      <div class="space-y-4 text-text-body text-base leading-relaxed">
-        <p>
-          We carry cyber liability and errors &amp; omissions (E&amp;O) insurance with affirmative AI coverage. Our carrier was selected specifically because their policies do not contain AI exclusions, which means claims arising from AI agent operations, model failures, and autonomous actions are explicitly covered. This is a deliberate choice — many carriers in the market are adding AI exclusion clauses, and we chose one that does the opposite.
-        </p>
-        <ul class="space-y-3 ml-4 mt-2">
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span>Cyber + E&amp;O with affirmative AI coverage (no AI exclusions)</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span>General liability (Business Owner's Policy)</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span>Certificate of Insurance available on request</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-            <span>Additional Insured endorsement available for enterprise clients</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Vendor Questionnaire Turnaround -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Vendor Questionnaire Turnaround</h2>
-      <div class="space-y-4 text-text-body text-base leading-relaxed">
-        <p>
-          We maintain pre-filled responses for SIG Lite and CAIQ v4 questionnaires with evidence references mapped to each control. For enterprise procurement teams, we can typically return a completed vendor questionnaire within 24&ndash;48 hours instead of the 2&ndash;3 weeks that is standard in the industry.
-        </p>
-        <p>
-          If you have a custom security questionnaire, send it to
-          <a href="mailto:security@1404.io?subject=Vendor%20Questionnaire" class="text-copper hover:text-copper-bright transition-colors duration-200">security@1404.io</a>
-          and we will turn it around on the same timeline.
-        </p>
-      </div>
-    </div>
-
-    <!-- Infrastructure -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Infrastructure</h2>
-      <div class="space-y-4 text-text-body text-base leading-relaxed">
-        <p>
-          Client environments are hosted on AWS (us-east-1 and us-east-2) with automatic TLS via Caddy reverse proxy. Administrative access runs through a Tailscale WireGuard mesh VPN — no management ports are exposed to the public internet.
-        </p>
-        <p>
-          The architecture follows defense-in-depth with five isolated Linux user tiers (admin, application, agent-service, per-client workers, per-client MCP processes), per-client iptables egress rules, three-tier credential vaults, secret scrubbing on all agent output, and immutable agent instruction files. No single compromised layer provides access to client data.
-        </p>
-        <p>
-          Backups run on a three-layer strategy: local daily (30-day retention), remote daily (30-day retention), and S3 Glacier weekly (52-week retention). Recovery targets are 1 hour RTO and 24 hours RPO for cloud infrastructure, verified through quarterly restoration tests.
-        </p>
-      </div>
-    </div>
-
-    <!-- Incident Response -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Incident Response</h2>
-      <div class="space-y-4 text-text-body text-base leading-relaxed">
-        <p>
-          Our incident response plan defines four severity levels with escalating response and resolution targets. All incidents are documented with full timelines, root cause analysis, remediation steps, and lessons learned.
-        </p>
-      </div>
-
-      <div class="overflow-x-auto -mx-6 px-6 mt-6">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b border-border">
-              <th class="text-left text-text-muted font-normal text-xs tracking-wide uppercase py-3 pr-6">Severity</th>
-              <th class="text-left text-text-muted font-normal text-xs tracking-wide uppercase py-3 pr-6">Response</th>
-              <th class="text-left text-text-muted font-normal text-xs tracking-wide uppercase py-3 pr-6">Resolution Target</th>
-              <th class="text-left text-text-muted font-normal text-xs tracking-wide uppercase py-3">Client Notification</th>
-            </tr>
-          </thead>
-          <tbody class="text-text-secondary">
-            <tr class="border-b border-border-light">
-              <td class="py-3 pr-6 text-text-body">Critical</td>
-              <td class="py-3 pr-6">15 minutes</td>
-              <td class="py-3 pr-6">4 hours</td>
-              <td class="py-3">Within 24 hours</td>
-            </tr>
-            <tr class="border-b border-border-light">
-              <td class="py-3 pr-6 text-text-body">High</td>
-              <td class="py-3 pr-6">1 hour</td>
-              <td class="py-3 pr-6">8 hours</td>
-              <td class="py-3">Within 48 hours</td>
-            </tr>
-            <tr class="border-b border-border-light">
-              <td class="py-3 pr-6 text-text-body">Medium</td>
-              <td class="py-3 pr-6">4 hours</td>
-              <td class="py-3 pr-6">24 hours</td>
-              <td class="py-3">Within 72 hours</td>
-            </tr>
-            <tr>
-              <td class="py-3 pr-6 text-text-body">Low</td>
-              <td class="py-3 pr-6">24 hours</td>
-              <td class="py-3 pr-6">5 business days</td>
-              <td class="py-3">As applicable</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Documents Available -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-8">Documents Available</h2>
-
-      <div class="space-y-8">
-
-        <div>
-          <p class="font-mono text-xs text-copper mb-4 tracking-wide">Under NDA</p>
-          <ul class="space-y-2 text-text-secondary text-sm ml-4">
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <span>SOC 2 Type II Report (available Q3 2026)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <span>Penetration Test Report (available Q2 2026)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <span>AI Governance Framework</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <span>Risk Assessment &amp; Red Team Report</span>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="font-mono text-xs text-copper mb-4 tracking-wide">On Request</p>
-          <ul class="space-y-2 text-text-secondary text-sm ml-4">
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <span>Data Processing Agreement (DPA)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <span>HIPAA Business Associate Agreement (BAA)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <span>Certificate of Insurance (COI)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <span>Vendor Questionnaire Responses (SIG Lite, CAIQ v4)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <span>Master Services Agreement (MSA) with SLA exhibit</span>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="font-mono text-xs text-copper mb-4 tracking-wide">Public</p>
-          <ul class="space-y-2 text-text-secondary text-sm ml-4">
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <a href="#subprocessors" class="hover:text-text-primary transition-colors duration-200">Subprocessor List</a>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <a href="/legal/privacy" class="hover:text-text-primary transition-colors duration-200">Privacy Policy</a>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-copper mt-0.5 shrink-0">&bull;</span>
-              <a href="/legal/terms" class="hover:text-text-primary transition-colors duration-200">Terms of Service</a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Subprocessor List -->
-    <div id="subprocessors" class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-8">Subprocessor List</h2>
-      <p class="text-text-secondary text-sm mb-6">Last updated March 2026</p>
+      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Subprocessors</h2>
+      <p class="text-text-body text-base leading-relaxed mb-2 max-w-3xl">
+        These third parties may process client data in the course of delivering our services.
+      </p>
+      <p class="text-text-muted text-sm mb-6">Last reviewed July 2026</p>
 
       <div class="overflow-x-auto -mx-6 px-6">
         <table class="w-full text-sm">
@@ -548,20 +114,20 @@ import PageLayout from '../layouts/PageLayout.astro';
             </tr>
             <tr class="border-b border-border-light">
               <td class="py-3 pr-6 text-text-body">Anthropic</td>
-              <td class="py-3 pr-6">AI model API (Claude)</td>
+              <td class="py-3 pr-6">Claude AI API</td>
               <td class="py-3 pr-6">Prompts &amp; responses (30-day retention, training opt-out)</td>
               <td class="py-3">US</td>
             </tr>
             <tr class="border-b border-border-light">
-              <td class="py-3 pr-6 text-text-body">Microsoft</td>
-              <td class="py-3 pr-6">M365 integration</td>
-              <td class="py-3 pr-6">Email, files, calendar (per client)</td>
+              <td class="py-3 pr-6 text-text-body">Microsoft 365</td>
+              <td class="py-3 pr-6">Email, files, calendar integration</td>
+              <td class="py-3 pr-6">Per client</td>
               <td class="py-3">US</td>
             </tr>
             <tr class="border-b border-border-light">
-              <td class="py-3 pr-6 text-text-body">Google</td>
-              <td class="py-3 pr-6">Google Workspace integration</td>
-              <td class="py-3 pr-6">Email, files, calendar (per client)</td>
+              <td class="py-3 pr-6 text-text-body">Google Workspace</td>
+              <td class="py-3 pr-6">Email, files, calendar integration</td>
+              <td class="py-3 pr-6">Per client</td>
               <td class="py-3">US</td>
             </tr>
             <tr class="border-b border-border-light">
@@ -571,8 +137,8 @@ import PageLayout from '../layouts/PageLayout.astro';
               <td class="py-3">US</td>
             </tr>
             <tr class="border-b border-border-light">
-              <td class="py-3 pr-6 text-text-body">Intuit</td>
-              <td class="py-3 pr-6">QuickBooks integration</td>
+              <td class="py-3 pr-6 text-text-body">Intuit / QuickBooks</td>
+              <td class="py-3 pr-6">Accounting integration</td>
               <td class="py-3 pr-6">Financial data (per client)</td>
               <td class="py-3">US</td>
             </tr>
@@ -584,7 +150,7 @@ import PageLayout from '../layouts/PageLayout.astro';
             </tr>
             <tr>
               <td class="py-3 pr-6 text-text-body">Tailscale</td>
-              <td class="py-3 pr-6">Admin VPN</td>
+              <td class="py-3 pr-6">Administrative VPN</td>
               <td class="py-3 pr-6">No client data transits</td>
               <td class="py-3">US</td>
             </tr>
@@ -593,16 +159,49 @@ import PageLayout from '../layouts/PageLayout.astro';
       </div>
     </div>
 
-    <!-- Monitoring -->
+    <!-- Privacy and Legal -->
     <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Monitoring</h2>
-      <div class="space-y-4 text-text-body text-base leading-relaxed">
-        <p>
-          System status and incident history are published at
-          <a href="https://status.1404.io" target="_blank" rel="noopener noreferrer" class="text-copper hover:text-copper-bright transition-colors duration-200">status.1404.io</a>.
-          Audit logs are retained for a minimum of 12 months. Agent transcripts, API call logs, and knowledge store activity are all logged with timestamps and full traceability.
-        </p>
+      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Privacy and Legal</h2>
+      <p class="text-text-body text-base leading-relaxed max-w-3xl">
+        Our Privacy Policy and Terms of Service are published. A GDPR-aligned Data Processing Agreement and a HIPAA Business Associate Agreement template are available on request.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <a href="/legal/privacy" class="text-copper hover:text-copper-bright transition-colors duration-200">Privacy Policy</a>
+        <a href="/legal/terms" class="text-copper hover:text-copper-bright transition-colors duration-200">Terms of Service</a>
       </div>
+    </div>
+
+    <!-- Documents Available on Request -->
+    <div class="mb-20">
+      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Documents Available on Request</h2>
+      <p class="text-text-body text-base leading-relaxed max-w-3xl mb-6">
+        The following are available under NDA:
+      </p>
+      <ul class="space-y-2 text-text-secondary text-sm ml-4">
+        <li class="flex items-start gap-3">
+          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
+          <span>SOC 2 Type II report, once issued</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
+          <span>Our security policies</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
+          <span>AI Governance Framework</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
+          <span>Data Processing Agreement (DPA)</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-copper mt-0.5 shrink-0">&bull;</span>
+          <span>HIPAA Business Associate Agreement (BAA) template</span>
+        </li>
+      </ul>
+      <p class="text-text-muted text-sm mt-6">
+        Request access through our <a href="https://app.vanta.com/1404.io/trust/tjt5icceuv26vnyb2zoebj" target="_blank" rel="noopener noreferrer" class="text-copper hover:text-copper-bright transition-colors duration-200">Trust Center</a> or by emailing security@1404.io.
+      </p>
     </div>
 
     <!-- Security Contact -->
@@ -610,13 +209,13 @@ import PageLayout from '../layouts/PageLayout.astro';
       <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Security Contact</h2>
       <div class="space-y-4 text-text-body text-base leading-relaxed">
         <p>
-          For security inquiries, vulnerability reports, document requests, or vendor questionnaires:
+          Report a security concern, vulnerability, or documentation request to:
         </p>
         <p>
           <a href="mailto:security@1404.io" class="text-copper hover:text-copper-bright transition-colors duration-200">security@1404.io</a>
         </p>
         <p class="text-text-secondary text-sm mt-4">
-          We acknowledge all security reports within 24 hours and aim to resolve confirmed vulnerabilities within 72 hours.
+          We acknowledge reports promptly and route them through our Incident Response Plan.
         </p>
       </div>
     </div>
