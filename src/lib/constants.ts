@@ -66,9 +66,9 @@ export const DIFFERENTIATORS = [
   { title: 'Built for the long term.', body: 'We stay with you and keep improving what we build as your business grows.' },
 ] as const;
 
-// How we work. Every problem, the same way. Source: intro one-pager.
+// How we work — the three steps. Source: /how-it-works page headers.
 export const PROCESS = [
-  { step: 'Investigate', body: 'We find where the problem is stemming from.' },
-  { step: 'Understand', body: "We learn how it's arising and think through what a solution looks like." },
-  { step: 'Build', body: "We build that solution and refine it iteratively until it's perfected." },
+  { step: 'We work through it together' },
+  { step: 'We get a simple fix up fast' },
+  { step: 'We iterate until it fits' },
 ] as const;
