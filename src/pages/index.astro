@@ -64,15 +64,13 @@ import { PHASES, DIFFERENTIATORS, PROCESS } from '../lib/constants';
     <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
       <SectionHeading
         title="How we work"
-        subtitle="Every problem, the same way."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-10">
         {PROCESS.map((p, i) => (
           <div>
             <p class="font-mono text-3xl md:text-4xl text-copper mb-4 tracking-wide">0{i + 1}</p>
-            <h3 class="font-display text-2xl text-text-primary mb-3">{p.step}</h3>
-            <p class="text-text-body text-base leading-relaxed">{p.body}</p>
+            <h3 class="font-display text-2xl text-text-primary">{p.step}</h3>
           </div>
         ))}
       </div>
