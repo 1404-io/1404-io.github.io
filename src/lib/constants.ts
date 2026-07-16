@@ -68,7 +68,7 @@ export const DIFFERENTIATORS = [
 
 // How we work — the three steps. Source: /how-it-works page headers.
 export const PROCESS = [
-  { step: 'We work through it together' },
+  { step: 'We work through problems together' },
   { step: 'We get a simple fix up fast' },
-  { step: 'We iterate until it fits' },
+  { step: "We iterate until it's perfected" },
 ] as const;
