@@ -14,8 +14,8 @@ export const CLIENT_LOGOS = [
 ] as const;
 
 export const NAV_LINKS = [
-  { label: 'Partnership', href: '/partnership' },
-  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Engagement Structure', href: '/partnership' },
+  { label: 'How We Work', href: '/how-it-works' },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'About', href: '/about' },
   { label: 'Trust', href: '/trust' },
@@ -23,8 +23,8 @@ export const NAV_LINKS = [
 
 export const FOOTER_SECTIONS = {
   product: [
-    { label: 'Partnership', href: '/partnership' },
-    { label: 'How It Works', href: '/how-it-works' },
+    { label: 'Engagement Structure', href: '/partnership' },
+    { label: 'How We Work', href: '/how-it-works' },
     { label: 'Case Studies', href: '/case-studies' },
   ],
   company: [
