@@ -1,157 +1,73 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { PROCESS } from '../lib/constants';
 ---
 
 <PageLayout
-  title="How It Works — 1404 | How we work and what we build"
-  description="How we work with you, and how we build. The method we follow on every problem, and what turns AI from a chat tool into something that runs real work inside your business."
+  title="How We Work — 1404 | How we solve problems"
+  description="How 1404 approaches problems. We take something complex, treat it immediately with the simplest solution that works, then refine it iteratively until it holds up for the long term."
 >
-  <!-- Header -->
   <section class="max-w-4xl mx-auto px-6 pt-40 pb-24 md:pb-32">
 
+    <!-- Header -->
     <header class="mb-20">
       <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-text-primary leading-tight">
-        How it works
+        How we work
       </h1>
       <p class="mt-6 text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl">
-        The method we run on every problem, and how we turn AI into something that does real work inside your business.
+        Every company solves problems its own way. Here is ours.
       </p>
     </header>
 
-    <!-- How we work: the method -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-4">How we work. Every problem, the same way.</h2>
-      <p class="text-text-body text-base leading-relaxed mb-12 max-w-3xl">
-        Whatever you bring us, from a daily headache to a company-wide goal, we run it through the same three steps.
-      </p>
+    <!-- The philosophy -->
+    <div class="mb-24">
+      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6 max-w-3xl">
+        Take a complex problem, treat it immediately, then cure it iteratively.
+      </h2>
 
-      <div class="space-y-10">
-        {PROCESS.map((p, i) => (
-          <div class="border-l-2 border-copper pl-8">
-            <p class="font-mono text-3xl md:text-4xl text-copper mb-4 tracking-wide">0{i + 1}</p>
-            <h3 class="font-display text-xl md:text-2xl text-text-primary mb-3">{p.step}</h3>
-            <p class="text-text-body text-base leading-relaxed">{p.body}</p>
-          </div>
-        ))}
+      <div class="space-y-6 text-text-body text-base leading-relaxed max-w-3xl">
+        <p>
+          We start by making a complex problem simple. We find the smallest solution that actually works, put it in front of you fast, and get it doing real work. Then we spend the real time on it, working through the complexity underneath and refining it until it holds up for the long term.
+        </p>
+        <p>
+          Most technology work runs the other way. It tries to design for every edge case up front, takes months to ship, and often solves a problem that has already moved. Starting simple means you see the value early. Refining over time means the solution keeps working as your business grows into it.
+        </p>
       </div>
     </div>
 
-    <!-- The Problem with AI Today -->
+    <!-- The method -->
     <div class="mb-20 border-t border-border pt-16">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">What we build, and why it works</h2>
+      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-12">
+        The same three steps, on every problem.
+      </h2>
 
-      <div class="space-y-6 text-text-body text-base leading-relaxed">
-        <p>
-          Most companies have tried AI at this point. Someone signed up for ChatGPT, asked it a few questions, maybe used it to draft an email. The experience is usually the same. Impressive in the moment, but not operational. It can't access your systems, doesn't know your workflows, and forgets everything the moment you close the tab.
-        </p>
-        <p>
-          One of the things we build for you is agents that close that gap. We take the most capable AI available and turn it into something that operates inside your business, reading your data, taking actions in your systems, and handling real work on an ongoing basis. Every agent we build has three layers.
-        </p>
+      <div class="space-y-12">
+
+        <div class="border-l-2 border-copper pl-8">
+          <p class="font-mono text-3xl md:text-4xl text-copper mb-4 tracking-wide">01</p>
+          <h3 class="font-display text-xl md:text-2xl text-text-primary mb-3">Investigate</h3>
+          <p class="text-text-body text-base leading-relaxed max-w-3xl">
+            We find where the problem is actually stemming from. Not the symptom you noticed, but the root underneath it.
+          </p>
+        </div>
+
+        <div class="border-l-2 border-copper pl-8">
+          <p class="font-mono text-3xl md:text-4xl text-copper mb-4 tracking-wide">02</p>
+          <h3 class="font-display text-xl md:text-2xl text-text-primary mb-3">Understand</h3>
+          <p class="text-text-body text-base leading-relaxed max-w-3xl">
+            We learn how the problem actually works, then figure out the simplest solution that solves it.
+          </p>
+        </div>
+
+        <div class="border-l-2 border-copper pl-8">
+          <p class="font-mono text-3xl md:text-4xl text-copper mb-4 tracking-wide">03</p>
+          <h3 class="font-display text-xl md:text-2xl text-text-primary mb-3">Build</h3>
+          <p class="text-text-body text-base leading-relaxed max-w-3xl">
+            We build that solution and put it to work fast, then refine it iteratively. Each pass optimizes it against how your business really operates, until it is solved for the long term, not just for today.
+          </p>
+        </div>
+
       </div>
-    </div>
-
-    <!-- The Three Components -->
-    <div class="mb-20">
-      <!-- The Brain -->
-      <div class="border-l-2 border-copper pl-8 mb-12">
-        <p class="font-mono text-3xl md:text-4xl text-copper mb-4 tracking-wide">01</p>
-        <h3 class="font-display text-xl md:text-2xl text-text-primary mb-4">The Brain</h3>
-
-        <div class="space-y-4 text-text-body text-base leading-relaxed">
-          <p>
-            The foundation is a large language model, configured for real work instead of chat. It can read documents, analyze data, write reports, and reason through problems that would normally require a person sitting down and thinking through them.
-          </p>
-          <p>
-            On its own, though, it's disconnected from your business. Think of it as hiring someone with an extraordinary mind but no context about your company and no way to interact with your systems. They could reason through any problem you describe, but they can't pull up your financials, send an email on your behalf, or update a project in your management tool.
-          </p>
-        </div>
-      </div>
-
-      <!-- The Tools -->
-      <div class="border-l-2 border-copper pl-8 mb-12">
-        <p class="font-mono text-3xl md:text-4xl text-copper mb-4 tracking-wide">02</p>
-        <h3 class="font-display text-xl md:text-2xl text-text-primary mb-4">The Tools</h3>
-
-        <div class="space-y-4 text-text-body text-base leading-relaxed">
-          <p>
-            We connect that brain to the systems your company actually runs on. Email, calendar, accounting, CRM, project management, file storage. If the agent needs to read from it, write to it, or take action in it, we wire up that connection.
-          </p>
-          <p>
-            With those connections in place, the agent stops being a chatbot and starts doing real work. It triages your email by reading each message, deciding priority, and drafting responses for your review. It pulls real numbers from your accounting system for financial reports. Before a meeting, it puts together a brief from actual project data and recent conversations. Each connection is purpose-built and secured, so the agent only accesses the systems it needs, with minimum permissions.
-          </p>
-        </div>
-      </div>
-
-      <!-- The Training -->
-      <div class="border-l-2 border-copper pl-8">
-        <p class="font-mono text-3xl md:text-4xl text-copper mb-4 tracking-wide">03</p>
-        <h3 class="font-display text-xl md:text-2xl text-text-primary mb-4">The Training</h3>
-
-        <div class="space-y-4 text-text-body text-base leading-relaxed">
-          <p>
-            We teach each agent how your business runs. The terminology, workflows, reporting standards, communication style, and who on your team needs what. A generic AI email is obvious. One written in your voice, referencing the right project and following up on last Tuesday's conversation is what people actually respond to, and it's what makes the agents useful rather than novel.
-          </p>
-          <p>
-            The training isn't a one-time setup. Every interaction adds to the agent's understanding, and every correction refines its judgment. After a few months, it has picked up the details of how you actually operate.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- What Makes This Different -->
-    <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">What makes this different from ChatGPT</h2>
-
-      <p class="text-text-body text-base leading-relaxed mb-10">
-        ChatGPT can think, but it can't do anything inside your business. Here's what changes when you add the tools, training, and infrastructure around it.
-      </p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div class="border border-border-light rounded-sm px-6 py-5 bg-bg-card">
-          <p class="font-mono text-xs text-copper mb-2 tracking-wide">CONNECTED</p>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            Plugged into your actual systems, from email and calendar to financials, CRM, and project management, so it can read and act, not just talk.
-          </p>
-        </div>
-        <div class="border border-border-light rounded-sm px-6 py-5 bg-bg-card">
-          <p class="font-mono text-xs text-copper mb-2 tracking-wide">OPERATIONAL</p>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            Sends emails, generates reports, updates systems, prepares documents. Handles the work end to end instead of just suggesting what to do.
-          </p>
-        </div>
-        <div class="border border-border-light rounded-sm px-6 py-5 bg-bg-card">
-          <p class="font-mono text-xs text-copper mb-2 tracking-wide">ALWAYS ON</p>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            Runs around the clock without being prompted. Morning briefs are ready when you wake up, and your inbox is already sorted.
-          </p>
-        </div>
-        <div class="border border-border-light rounded-sm px-6 py-5 bg-bg-card">
-          <p class="font-mono text-xs text-copper mb-2 tracking-wide">MANAGED</p>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            Built, maintained, and continuously improved by 1404. You don't configure or manage anything. We handle all of it.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Security -->
-    <div class="border-t border-border pt-16 mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">Security and isolation</h2>
-
-      <div class="space-y-6 text-text-body text-base leading-relaxed">
-        <p>
-          What we build operates inside your business and needs access to sensitive systems, so isolation is built into the architecture from the ground up. Each client's infrastructure runs in its own environment with dedicated credentials and network boundaries. Nothing is shared between clients.
-        </p>
-        <p>
-          Access is limited to the systems we're explicitly given permission to use. Every action is logged and auditable. We're pursuing SOC 2 Type II certification, and our security architecture assumes from the start that we're operating inside client infrastructure with access to sensitive data.
-        </p>
-      </div>
-
-      <a href="/trust" class="inline-block mt-6 text-sm text-copper hover:text-copper-bright transition-colors duration-200">
-        Full security and compliance details &rarr;
-      </a>
     </div>
 
   </section>
