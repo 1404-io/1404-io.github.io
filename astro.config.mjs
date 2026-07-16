@@ -12,6 +12,8 @@ export default defineConfig({
     '/agents/business-development': '/partnership',
     '/agents/acquisitions': '/partnership',
     '/agents/exit-liquidity': '/partnership',
+    '/privacy': '/legal/privacy',
+    '/terms': '/legal/terms',
   },
   integrations: [
     sitemap({
@@ -21,10 +23,6 @@ export default defineConfig({
         !page.includes('/brief-onboarding'),
     }),
   ],
-  redirects: {
-    '/privacy': '/legal/privacy',
-    '/terms': '/legal/terms',
-  },
   vite: {
     plugins: [tailwindcss()],
   },
