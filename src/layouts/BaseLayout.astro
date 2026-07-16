@@ -35,16 +35,24 @@ const organizationSchema = {
   'areaServed': 'US',
   'serviceType': ['AI Strategy', 'Custom Software Development', 'Forward-Deployed Engineering', 'Technology Partnership'],
   'knowsAbout': ['Construction Technology', 'Manufacturing Technology', 'Enterprise Software'],
-  'founder': {
-    '@type': 'Person',
-    'name': 'Holden Bryce',
-    'jobTitle': 'Founder & CTO',
-    'url': 'https://1404.io/about',
-    'sameAs': [
-      'https://linkedin.com/in/holdenbryce',
-      'https://github.com/holdenbryce',
-    ],
-  },
+  'founder': [
+    {
+      '@type': 'Person',
+      'name': 'Arthur Skatoff',
+      'jobTitle': 'Cofounder',
+      'url': 'https://1404.io/about',
+    },
+    {
+      '@type': 'Person',
+      'name': 'Holden Bryce',
+      'jobTitle': 'Cofounder',
+      'url': 'https://1404.io/about',
+      'sameAs': [
+        'https://linkedin.com/in/holdenbryce',
+        'https://github.com/holdenbryce',
+      ],
+    },
+  ],
   'address': {
     '@type': 'PostalAddress',
     'addressLocality': 'Detroit',
