@@ -1,47 +1,59 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import CTABanner from '../components/CTABanner.astro';
+import { PROCESS } from '../lib/constants';
 ---
 
 <PageLayout
-  title="How It Works — 1404 | How AI Agents Are Built"
-  description="How we build AI agent teams for your business. The brain, the tools, the training — and what makes this different from ChatGPT."
+  title="How It Works — 1404 | How we work and what we build"
+  description="How we work with you, and how we build. The method we follow on every problem, and what turns AI from a chat tool into something that runs real work inside your business."
 >
   <!-- Header -->
   <section class="max-w-4xl mx-auto px-6 pt-40 pb-24 md:pb-32">
 
     <header class="mb-20">
       <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-text-primary leading-tight">
-        How It Works
+        How it works
       </h1>
       <p class="mt-6 text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl">
-        What an AI agent actually is, and how we build them for your business.
+        How we work with you, and how we build.
       </p>
     </header>
 
-    <!-- The Problem with AI Today -->
+    <!-- How we work: the method -->
     <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">The problem with AI today</h2>
+      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-4">How we work. Every problem, the same way.</h2>
+      <p class="text-text-body text-base leading-relaxed mb-12 max-w-3xl">
+        Whatever you bring us, from a daily headache to a company-wide goal, we run it through the same three steps.
+      </p>
+
+      <div class="space-y-10">
+        {PROCESS.map((p, i) => (
+          <div class="border-l-2 border-copper pl-8">
+            <p class="font-mono text-xs text-copper mb-3 tracking-wide">0{i + 1}</p>
+            <h3 class="font-display text-xl md:text-2xl text-text-primary mb-3">{p.step}</h3>
+            <p class="text-text-body text-base leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- The Problem with AI Today -->
+    <div class="mb-20 border-t border-border pt-16">
+      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">What we build, and why it works</h2>
 
       <div class="space-y-6 text-text-body text-base leading-relaxed">
         <p>
-          Most companies have tried AI at this point. Someone signed up for ChatGPT, asked it a few questions, maybe used it to draft an email. The experience is usually the same — impressive in the moment, but not operational. It can't access your systems, doesn't know your workflows, and forgets everything the moment you close the tab.
+          Most companies have tried AI at this point. Someone signed up for ChatGPT, asked it a few questions, maybe used it to draft an email. The experience is usually the same. Impressive in the moment, but not operational. It can't access your systems, doesn't know your workflows, and forgets everything the moment you close the tab.
         </p>
         <p>
-          The gap between "AI that answers questions" and "AI that runs operations" is enormous. We close that gap by taking the most capable AI available and turning it into something that actually operates inside your business — reading your data, taking actions in your systems, and handling real work on an ongoing basis.
+          One of the things we build for you is agents that close that gap. We take the most capable AI available and turn it into something that operates inside your business, reading your data, taking actions in your systems, and handling real work on an ongoing basis. Every agent we build has three layers.
         </p>
       </div>
     </div>
 
     <!-- The Three Components -->
     <div class="mb-20">
-      <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">The three components</h2>
-
-      <p class="text-text-body text-base leading-relaxed mb-12">
-        Every agent we build has three layers. Understanding them is the fastest way to understand what makes this work.
-      </p>
-
       <!-- The Brain -->
       <div class="border-l-2 border-copper pl-8 mb-12">
         <p class="font-mono text-xs text-copper mb-3 tracking-wide">01</p>
@@ -49,7 +61,7 @@ import CTABanner from '../components/CTABanner.astro';
 
         <div class="space-y-4 text-text-body text-base leading-relaxed">
           <p>
-            The foundation is a large language model — the same core technology behind tools like ChatGPT, but configured for work instead of chat. It can read documents, analyze data, write reports, and reason through problems that would normally require a person sitting down and thinking through them.
+            The foundation is a large language model, the same core technology behind tools like ChatGPT, but configured for work instead of chat. It can read documents, analyze data, write reports, and reason through problems that would normally require a person sitting down and thinking through them.
           </p>
           <p>
             On its own, though, it's powerful but disconnected from your business. Think of it as hiring someone with an extraordinary mind but no context about your company and no way to interact with your systems. They could reason through any problem you describe to them, but they can't pull up your financials, send an email on your behalf, or update a project in your management tool. The brain matters, but on its own it can't do anything with your actual business.
@@ -64,10 +76,10 @@ import CTABanner from '../components/CTABanner.astro';
 
         <div class="space-y-4 text-text-body text-base leading-relaxed">
           <p>
-            We connect that brain to the systems your company actually runs on — email, calendar, accounting, CRM, project management, file storage. If the agent needs to read from it, write to it, or take action in it, we wire up that connection.
+            We connect that brain to the systems your company actually runs on. Email, calendar, accounting, CRM, project management, file storage. If the agent needs to read from it, write to it, or take action in it, we wire up that connection.
           </p>
           <p>
-            With those connections in place, the agent stops being a chatbot and starts doing real work. The agent triages your email by reading each message, deciding priority, and drafting responses for your review. It pulls real numbers from your accounting system for financial reports. Before a meeting, it puts together a brief from actual project data and recent conversations. Each connection is purpose-built and secured — the agent only accesses the systems it needs, with minimum permissions.
+            With those connections in place, the agent stops being a chatbot and starts doing real work. It triages your email by reading each message, deciding priority, and drafting responses for your review. It pulls real numbers from your accounting system for financial reports. Before a meeting, it puts together a brief from actual project data and recent conversations. Each connection is purpose-built and secured, so the agent only accesses the systems it needs, with minimum permissions.
           </p>
         </div>
       </div>
@@ -79,10 +91,10 @@ import CTABanner from '../components/CTABanner.astro';
 
         <div class="space-y-4 text-text-body text-base leading-relaxed">
           <p>
-            We teach each agent how your business runs — the terminology, workflows, reporting standards, communication style, and who on your team needs what. A generic AI email is obvious. One written in your voice, referencing the right project and following up on last Tuesday's conversation — that's what people actually respond to, and it's what makes the agents useful rather than novel.
+            We teach each agent how your business runs. The terminology, workflows, reporting standards, communication style, and who on your team needs what. A generic AI email is obvious. One written in your voice, referencing the right project and following up on last Tuesday's conversation is what people actually respond to, and it's what makes the agents useful rather than novel.
           </p>
           <p>
-            The training isn't a one-time setup. Every interaction adds to the agent's understanding, every correction refines its judgment. After a few months, they know things about your operations that would take a new hire a year to learn.
+            The training isn't a one-time setup. Every interaction adds to the agent's understanding, and every correction refines its judgment. After a few months, it knows things about your operations that would take a new hire a year to learn.
           </p>
         </div>
       </div>
@@ -100,7 +112,7 @@ import CTABanner from '../components/CTABanner.astro';
         <div class="border border-border-light rounded-sm px-6 py-5 bg-bg-card">
           <p class="font-mono text-xs text-copper mb-2 tracking-wide">CONNECTED</p>
           <p class="text-text-secondary text-sm leading-relaxed">
-            Plugged into your actual systems — email, calendar, financials, CRM, project management — so it can read and act, not just talk.
+            Plugged into your actual systems, from email and calendar to financials, CRM, and project management, so it can read and act, not just talk.
           </p>
         </div>
         <div class="border border-border-light rounded-sm px-6 py-5 bg-bg-card">
@@ -130,7 +142,7 @@ import CTABanner from '../components/CTABanner.astro';
         <div class="border border-border-light rounded-sm px-6 py-5 bg-bg-card">
           <p class="font-mono text-xs text-copper mb-2 tracking-wide">MANAGED</p>
           <p class="text-text-secondary text-sm leading-relaxed">
-            Built, maintained, and continuously improved by 1404. You don't configure or manage anything — we handle all of it.
+            Built, maintained, and continuously improved by 1404. You don't configure or manage anything. We handle all of it.
           </p>
         </div>
       </div>
@@ -142,10 +154,10 @@ import CTABanner from '../components/CTABanner.astro';
 
       <div class="space-y-6 text-text-body text-base leading-relaxed">
         <p>
-          Agents that operate inside your business need access to sensitive systems, so isolation is built into the architecture from the ground up. Each client's agent infrastructure runs in its own environment with dedicated credentials and network boundaries. Nothing is shared between clients.
+          What we build operates inside your business and needs access to sensitive systems, so isolation is built into the architecture from the ground up. Each client's infrastructure runs in its own environment with dedicated credentials and network boundaries. Nothing is shared between clients.
         </p>
         <p>
-          Agents can only access the systems they're explicitly given permission to use. Every action is logged and auditable. We're pursuing SOC 2 Type II certification, and our security architecture assumes from the start that we're operating inside client infrastructure with access to sensitive data.
+          Access is limited to the systems we're explicitly given permission to use. Every action is logged and auditable. We're pursuing SOC 2 Type II certification, and our security architecture assumes from the start that we're operating inside client infrastructure with access to sensitive data.
         </p>
       </div>
 
