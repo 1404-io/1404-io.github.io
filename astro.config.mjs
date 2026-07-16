@@ -12,6 +12,8 @@ export default defineConfig({
     '/agents/business-development': '/partnership',
     '/agents/acquisitions': '/partnership',
     '/agents/exit-liquidity': '/partnership',
+    '/privacy': '/legal/privacy',
+    '/terms': '/legal/terms',
   },
   integrations: [
     sitemap({
