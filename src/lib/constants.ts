@@ -17,6 +17,7 @@ export const NAV_LINKS = [
   { label: 'Partnership', href: '/partnership' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Case Studies', href: '/case-studies' },
+  { label: 'About', href: '/about' },
   { label: 'Trust', href: '/trust' },
 ] as const;
 
@@ -25,11 +26,9 @@ export const FOOTER_SECTIONS = {
     { label: 'Partnership', href: '/partnership' },
     { label: 'How It Works', href: '/how-it-works' },
     { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Work', href: '/work' },
   ],
   company: [
     { label: 'About', href: '/about' },
-    { label: 'Case Studies', href: '/case-studies' },
     { label: 'Insights', href: '/insights' },
     { label: 'Trust', href: '/trust' },
   ],

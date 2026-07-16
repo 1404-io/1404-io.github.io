@@ -28,22 +28,18 @@ import { PHASES, DIFFERENTIATORS, PROCESS } from '../lib/constants';
     <div class="max-w-5xl mx-auto px-6 py-24 md:py-32">
       <SectionHeading title="What we do for you" />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
         {PHASES.map((phase) => (
           <div class="border border-copper-dim rounded-sm p-8 bg-bg-card">
             <p class="font-mono text-xs text-copper mb-4 tracking-wide uppercase">{phase.kicker}</p>
             <h3 class="font-display text-2xl md:text-3xl text-text-primary mb-3">{phase.title}</h3>
-            <p class="text-text-secondary text-sm italic leading-relaxed mb-8">{phase.descriptor}</p>
-            <ul class="space-y-5">
-              {phase.bullets.map((b) => (
-                <li class="text-text-body text-base leading-relaxed">
-                  <span class="text-text-primary font-medium">{b.lead}</span> {b.rest}
-                </li>
-              ))}
-            </ul>
+            <p class="text-text-body text-base leading-relaxed">{phase.descriptor}</p>
           </div>
         ))}
       </div>
+      <a href="/partnership" class="text-sm text-copper hover:text-copper-bright transition-colors duration-200">
+        See how the partnership works &rarr;
+      </a>
     </div>
   </section>
 
@@ -71,7 +67,7 @@ import { PHASES, DIFFERENTIATORS, PROCESS } from '../lib/constants';
         subtitle="Every problem, the same way."
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-10">
         {PROCESS.map((p, i) => (
           <div>
             <p class="font-mono text-3xl md:text-4xl text-copper mb-4 tracking-wide">0{i + 1}</p>
@@ -80,6 +76,9 @@ import { PHASES, DIFFERENTIATORS, PROCESS } from '../lib/constants';
           </div>
         ))}
       </div>
+      <a href="/how-it-works" class="text-sm text-copper hover:text-copper-bright transition-colors duration-200">
+        See how we build &rarr;
+      </a>
     </div>
   </section>
 
@@ -90,10 +89,7 @@ import { PHASES, DIFFERENTIATORS, PROCESS } from '../lib/constants';
 
       <div class="space-y-6 text-text-body text-base leading-relaxed mb-12 max-w-3xl">
         <p>
-          The Construct Group, a national retail fixture installation company, was our first partner. We built their technology from the ground up. A unified operations platform with twelve integrated modules, AI agents running daily operations, and ongoing technology leadership. The results were significant enough that TCG came on as an equity partner.
-        </p>
-        <p>
-          TCG still runs on our platform today, and their CEO actively introduces us to other operators. That's how most of our partners find us. Everything we do was built and proven in production before we took a second partner.
+          The Construct Group, a national retail fixture installation company, was our first partner. We built their technology from the ground up, and it worked well enough that they came on as an equity partner.
         </p>
       </div>
 
