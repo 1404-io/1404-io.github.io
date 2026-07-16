@@ -11,15 +11,15 @@ const faqSchema = {
       'name': 'What happens on the first call with 1404?',
       'acceptedAnswer': {
         '@type': 'Answer',
-        'text': 'We spend 30 minutes learning about your business. No pitch deck. No sales script. We want to understand your operations, your team, your pain points, and where you think the biggest opportunities are. If there\'s a fit, we\'ll outline what a technology department looks like for your company. If there isn\'t, we\'ll tell you.',
+        'text': 'We spend 30 minutes learning about your business. No pitch deck. No sales script. We want to understand your operations, your team, where you are trying to grow, and what is slowing you down. If there is a fit, we outline what a partnership with 1404 would look like for your company. If there is not, we tell you.',
       },
     },
     {
       '@type': 'Question',
-      'name': 'What is the discovery process?',
+      'name': 'How does an engagement start?',
       'acceptedAnswer': {
         '@type': 'Answer',
-        'text': 'Week 1: We learn your operations — shadow workflows, interview your team, audit your current tools, and map every process that touches technology. Week 2: We deliver a technology roadmap — a specific, prioritized plan built around your operations. What to build first. What it costs. What it returns. The roadmap is yours to keep whether you hire us or not.',
+        'text': 'It starts with a one-time Foundation. We come on-site, put the best AI tools in your team\'s hands and get them fluent, connect the systems you already run so they work as one, and build a clear AI plan from your growth goals. From there it becomes an ongoing Partnership on a flat monthly retainer, where we keep building whatever moves the business forward and share in the upside we create.',
       },
     },
   ],
@@ -27,7 +27,7 @@ const faqSchema = {
 ---
 
 <PageLayout
-  title="Contact 1404 — Book a Call with Holden Bryce"
+  title="Contact 1404 — Start a conversation"
   description="Start a conversation with 1404. 30 minutes, no pitch deck. We'll learn about your business and tell you what's possible."
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -63,11 +63,21 @@ const faqSchema = {
       <p class="text-xs tracking-widest uppercase text-text-muted mb-3">Or reach out directly</p>
       <div>
         <a
+          href={`mailto:${SITE.emailArthur}`}
+          class="text-copper text-lg hover:text-copper-bright transition-colors duration-200"
+        >
+          {SITE.emailArthur}
+        </a>
+        <span class="text-text-muted text-sm ml-2">Arthur Skatoff</span>
+      </div>
+      <div>
+        <a
           href={`mailto:${SITE.email}`}
           class="text-copper text-lg hover:text-copper-bright transition-colors duration-200"
         >
           {SITE.email}
         </a>
+        <span class="text-text-muted text-sm ml-2">Holden Bryce</span>
       </div>
       <div>
         <a
@@ -85,10 +95,10 @@ const faqSchema = {
 
       <div class="space-y-6 text-text-body text-base leading-relaxed">
         <p>
-          We'll spend 30 minutes learning about your business. No pitch deck. No sales script. We want to understand your operations, your team, your pain points, and where you think the biggest opportunities are.
+          We'll spend 30 minutes learning about your business. No pitch deck. No sales script. We want to understand your operations, your team, where you're trying to grow, and what's slowing you down.
         </p>
         <p>
-          If there's a fit, we'll outline what a technology department looks like for your company. The modules you'd need first. The timeline. The investment. Specific enough to make a decision on.
+          If there's a fit, we'll outline what a partnership with 1404 looks like for your company. Where we'd start, what we'd build first, and what the investment looks like. Specific enough to make a decision on.
         </p>
         <p>
           If there isn't a fit, we'll tell you that too. We've turned down work that wasn't the right match, and we'd rather be honest about it upfront.
@@ -96,19 +106,19 @@ const faqSchema = {
       </div>
     </div>
 
-    <!-- The Discovery Process -->
+    <!-- How an engagement starts -->
     <div class="mt-20 bg-bg-card border border-border-light p-8 md:p-10">
-      <p class="text-xs tracking-widest uppercase text-text-muted mb-6">The Discovery Process</p>
+      <p class="text-xs tracking-widest uppercase text-text-muted mb-6">How an engagement starts</p>
 
       <div class="space-y-6 text-text-body text-sm leading-relaxed">
         <p>
-          <span class="text-text-primary font-medium">Week 1.</span> We learn your operations. We shadow workflows, interview your team, audit your current tools. We map every process that touches technology.
+          <span class="text-text-primary font-medium">Foundation.</span> A one-time, on-site setup. We get your people running with the best AI tools, connect the systems you already use so they work as one, and build a clear AI plan from where you want to grow.
         </p>
         <p>
-          <span class="text-text-primary font-medium">Week 2.</span> We deliver a technology roadmap — a specific, prioritized plan built around your operations, with what to build first, what it costs, and what you can expect it to return.
+          <span class="text-text-primary font-medium">Partnership.</span> An ongoing flat monthly retainer. We keep building whatever moves the business forward, from AI agents to custom software, and improve it as you grow.
         </p>
         <p>
-          <span class="text-text-primary font-medium">Then you decide.</span> No pressure, no manufactured urgency. The roadmap is yours to keep whether you hire us or not.
+          <span class="text-text-primary font-medium">Shared upside.</span> Beyond the retainer, we earn a share of the value we create each quarter. Our reward grows as yours does.
         </p>
       </div>
     </div>
