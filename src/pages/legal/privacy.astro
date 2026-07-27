@@ -85,13 +85,13 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <h2 class="font-display text-2xl md:text-3xl text-text-primary mb-6">How We Store Your Data</h2>
         <div class="space-y-4">
           <p>
-            All client data is hosted on Amazon Web Services (AWS) in the US-East-1 (Northern Virginia) region. Our security practices include:
+            All client data is hosted on Amazon Web Services (AWS) in US regions — us-east-1 (Northern Virginia), with an encrypted disaster-recovery copy in us-east-2 (Ohio). Our security practices include:
           </p>
           <ul class="list-disc list-inside space-y-2 text-text-secondary ml-4">
             <li><strong class="text-text-body">Encryption at rest</strong> — all stored data is encrypted using AES-256 encryption</li>
             <li><strong class="text-text-body">Encryption in transit</strong> — all data transmission uses TLS 1.2 or higher</li>
             <li><strong class="text-text-body">Client isolation</strong> — each client's data is isolated in a separate environment using Linux user-level separation, ensuring no cross-client data access</li>
-            <li><strong class="text-text-body">Credential management</strong> — API tokens and integration credentials are stored in AWS Secrets Manager with strict access controls</li>
+            <li><strong class="text-text-body">Credential management</strong> — API tokens and integration credentials are stored with restricted file permissions and access controls on isolated production hosts (migration to AWS Secrets Manager planned)</li>
             <li><strong class="text-text-body">Access controls</strong> — access to client environments is restricted to authorized personnel only</li>
           </ul>
         </div>
@@ -126,7 +126,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
           <div class="space-y-6 mt-6">
             <div class="border-l-2 border-border-light pl-6">
               <p class="text-text-primary font-medium mb-1">Amazon Web Services (AWS)</p>
-              <p class="text-text-secondary text-sm">Infrastructure, hosting, and data storage. Data resides in US-East-1.</p>
+              <p class="text-text-secondary text-sm">Infrastructure, hosting, and data storage. Data resides in us-east-1, with a disaster-recovery copy in us-east-2.</p>
               <a href="https://aws.amazon.com/privacy/" target="_blank" rel="noopener noreferrer" class="text-copper text-sm hover:text-copper-bright transition-colors duration-200">AWS Privacy Policy</a>
             </div>
 
@@ -159,7 +159,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
             We retain your data for as long as your service agreement is active and for 30 days following termination to allow for data export.
           </p>
           <p>
-            After the 30-day post-termination period, all client data is permanently deleted from our systems, including backups, unless retention is required by applicable law.
+            After the 30-day post-termination period, active client data is deleted from our systems. Residual encrypted backup copies expire automatically on our AWS Backup schedule and are fully purged within 12 months; in the interim, backups remain immutable and access-controlled. We do not retain data beyond these periods unless required by applicable law.
           </p>
           <p>
             You may request a complete export of your data at any time during the service agreement. Exports are provided in standard, machine-readable formats (CSV, JSON, or equivalent).
