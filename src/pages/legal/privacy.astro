@@ -90,7 +90,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
           <ul class="list-disc list-inside space-y-2 text-text-secondary ml-4">
             <li><strong class="text-text-body">Encryption at rest</strong> — all stored data is encrypted using AES-256 encryption</li>
             <li><strong class="text-text-body">Encryption in transit</strong> — all data transmission uses TLS 1.2 or higher</li>
-            <li><strong class="text-text-body">Client isolation</strong> — each client's data is isolated in a separate environment using Linux user-level separation, ensuring no cross-client data access</li>
+            <li><strong class="text-text-body">Client isolation</strong> — each client runs in a dedicated per-client environment, isolated at the compute (separate EC2 instance), database (separate RDS), encryption-key (per-client KMS), and network layers, with no cross-client data access</li>
             <li><strong class="text-text-body">Credential management</strong> — production API credentials are stored in AWS Secrets Manager with per-host IAM read policies and retrieved at service boot on isolated production hosts</li>
             <li><strong class="text-text-body">Access controls</strong> — access to client environments is restricted to authorized personnel only</li>
           </ul>
