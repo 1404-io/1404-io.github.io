@@ -64,9 +64,10 @@ import { SITE } from '../lib/constants';
 <section class="min-h-screen flex flex-col items-center justify-center px-6 pt-16">
   <div class="text-center max-w-5xl mx-auto">
 
-    <!-- ASCII art -->
-    <div class="overflow-hidden w-full flex justify-center mb-12 md:mb-16">
-      <pre class="font-mono text-copper text-[3px] leading-[1.1] sm:text-[4px] md:text-[6px] lg:text-[8px] xl:text-[10px] inline-block text-left select-none whitespace-pre -ml-[25ch]" aria-hidden="true">{ASCII_ART}</pre>
+    <!-- ASCII art (pre = no-JS fallback + source; canvas takes over and animates) -->
+    <div id="ascii-hero" class="overflow-hidden w-full flex justify-center mb-12 md:mb-16">
+      <pre id="ascii-hero-src" class="font-mono text-copper text-[3px] leading-[1.1] sm:text-[4px] md:text-[6px] lg:text-[8px] xl:text-[10px] inline-block text-left select-none whitespace-pre -ml-[25ch]" aria-hidden="true">{ASCII_ART}</pre>
+      <canvas id="ascii-hero-canvas" class="hidden select-none" aria-hidden="true"></canvas>
     </div>
 
     <!-- Tagline -->
@@ -96,3 +97,192 @@ import { SITE } from '../lib/constants';
     </div>
   </div>
 </section>
+
+<script>
+  // Animated ASCII hero — silhouette stays fixed; per-glyph copper brightness is
+  // driven by a slow diagonal wave + expanding rings + per-cell shimmer, with a
+  // rare hex-glyph flicker and a soft cursor glow. Tuned for an always-open tab:
+  // 30fps cap, DPR capped at 1.5, fully paused when the tab is hidden or the
+  // hero is scrolled out of view. prefers-reduced-motion gets one static frame.
+  const host = document.getElementById('ascii-hero');
+  const pre = document.getElementById('ascii-hero-src');
+  const canvas = document.getElementById('ascii-hero-canvas') as HTMLCanvasElement | null;
+
+  if (host && pre && canvas) {
+    const ctx = canvas.getContext('2d');
+    if (ctx) init(host, pre, canvas, ctx);
+  }
+
+  function init(host: HTMLElement, pre: HTMLElement, canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
+    const raw = (pre.textContent || '').replace(/\s+$/, '');
+    const lines = raw.split('\n');
+    const indent = Math.min(...lines.filter((l) => l.trim()).map((l) => l.length - l.trimStart().length));
+    const trimmed = lines.map((l) => l.slice(indent));
+    const cols = Math.max(...trimmed.map((l) => l.length));
+    const rows = trimmed.length;
+
+    // Perceived ink density per glyph → base brightness
+    const WEIGHT: Record<string, number> = {
+      '.': 0.3, ',': 0.55, '*': 0.7, '/': 0.72, '(': 0.72, ')': 0.72,
+      '#': 0.85, '%': 0.88, '&': 0.9, '@': 1.0,
+    };
+    const HEX = '0123456789ABCDEF';
+
+    type Cell = { x: number; y: number; ch: string; base: number; phase: number; rate: number; hex: string };
+    const cells: Cell[] = [];
+    const glyphs = new Set<string>();
+    for (let y = 0; y < rows; y++) {
+      const line = trimmed[y];
+      for (let x = 0; x < line.length; x++) {
+        const ch = line[x];
+        if (ch === ' ') continue;
+        const h = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
+        const r1 = h - Math.floor(h);
+        const h2 = Math.sin(x * 269.5 + y * 183.3) * 28001.8384;
+        const r2 = h2 - Math.floor(h2);
+        cells.push({
+          x, y, ch,
+          base: WEIGHT[ch] ?? 0.6,
+          phase: r1 * Math.PI * 2,
+          rate: 0.4 + r2 * 0.8,
+          hex: HEX[Math.floor(r1 * 16)],
+        });
+        glyphs.add(ch);
+      }
+    }
+    for (const c of HEX) glyphs.add(c);
+    const glyphList = [...glyphs];
+    const glyphIndex = new Map(glyphList.map((g, i) => [g, i]));
+
+    // copper ramp: dim → copper → bright → hot
+    const STOPS: [number, number[]][] = [
+      [0.0, [0x2e, 0x22, 0x1a]],
+      [0.45, [0x56, 0x3c, 0x29]],
+      [0.75, [0xc9, 0x95, 0x6b]],
+      [0.92, [0xd4, 0xa5, 0x74]],
+      [1.0, [0xf3, 0xdd, 0xc4]],
+    ];
+    const LUT_N = 24;
+    const lut: string[] = [];
+    for (let i = 0; i < LUT_N; i++) {
+      const t = i / (LUT_N - 1);
+      let a = STOPS[0], b = STOPS[STOPS.length - 1];
+      for (let s = 0; s < STOPS.length - 1; s++) {
+        if (t >= STOPS[s][0] && t <= STOPS[s + 1][0]) { a = STOPS[s]; b = STOPS[s + 1]; break; }
+      }
+      const f = (t - a[0]) / (b[0] - a[0] || 1);
+      const rgb = a[1].map((v, k) => Math.round(v + (b[1][k] - v) * f));
+      lut.push(`rgb(${rgb[0]},${rgb[1]},${rgb[2]})`);
+    }
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cx = cols / 2, cy = rows / 2;
+    const mouse = { x: -1e4, y: -1e4, tx: -1e4, ty: -1e4 };
+
+    let cellW = 0, cellH = 0, dpr = 1;
+    let atlas: HTMLCanvasElement | null = null;
+    let atlasW = 0, atlasH = 0;
+
+    function layout() {
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const availW = host.clientWidth || 320;
+      const cssCellW = Math.max(availW / cols, 1.6);
+      cellW = Math.max(1, Math.round(cssCellW * dpr));
+      const fontPx = cellW / 0.6;
+      cellH = Math.round(fontPx * 1.1);
+      canvas.width = cols * cellW;
+      canvas.height = rows * cellH;
+      canvas.style.width = `${canvas.width / dpr}px`;
+      canvas.style.height = `${canvas.height / dpr}px`;
+
+      // glyph atlas: one row per LUT color, one column per glyph — drawImage is
+      // much cheaper than per-cell fillText + fillStyle churn
+      atlasW = cellW; atlasH = cellH;
+      atlas = document.createElement('canvas');
+      atlas.width = glyphList.length * atlasW;
+      atlas.height = LUT_N * atlasH;
+      const a = atlas.getContext('2d')!;
+      a.font = `${fontPx}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      a.textAlign = 'center';
+      a.textBaseline = 'middle';
+      for (let ci = 0; ci < LUT_N; ci++) {
+        a.fillStyle = lut[ci];
+        for (let gi = 0; gi < glyphList.length; gi++) {
+          a.fillText(glyphList[gi], gi * atlasW + atlasW / 2, ci * atlasH + atlasH / 2);
+        }
+      }
+    }
+
+    function frame(t: number) {
+      if (!atlas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      mouse.x += (mouse.tx - mouse.x) * 0.12;
+      mouse.y += (mouse.ty - mouse.y) * 0.12;
+      const glowR2 = 18 * 18;
+      for (const c of cells) {
+        const dx = c.x - cx, dy = (c.y - cy) * 2.2;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        let v = 0.34 + c.base * 0.34
+          + 0.2 * Math.sin(c.x * 0.035 + c.y * 0.07 - t * 1.0)
+          + 0.14 * Math.sin(dist * 0.11 - t * 1.4)
+          + 0.08 * Math.sin(t * c.rate + c.phase);
+        const mdx = c.x - mouse.x, mdy = (c.y - mouse.y) * 2.2;
+        const md2 = mdx * mdx + mdy * mdy;
+        if (md2 < glowR2 * 4) v += 0.55 * Math.exp(-md2 / glowR2);
+        v = v < 0.1 ? 0.1 : v > 1 ? 1 : v;
+
+        // rare hexdump flicker on shimmer peaks
+        const flick = Math.sin(t * c.rate * 2.7 + c.phase * 5.3) > 0.996;
+        const gi = glyphIndex.get(flick ? c.hex : c.ch)!;
+        const ci = Math.round(v * (LUT_N - 1));
+        ctx.drawImage(atlas, gi * atlasW, ci * atlasH, atlasW, atlasH, c.x * cellW, c.y * cellH, atlasW, atlasH);
+      }
+    }
+
+    let raf = 0, running = false, last = 0;
+    const FRAME_MS = 1000 / 30;
+    function loop(now: number) {
+      raf = requestAnimationFrame(loop);
+      if (now - last < FRAME_MS) return;
+      last = now;
+      frame(now / 1000 * 0.45);
+    }
+    function start() {
+      if (running || reduced) return;
+      running = true;
+      last = 0;
+      raf = requestAnimationFrame(loop);
+    }
+    function stop() {
+      running = false;
+      cancelAnimationFrame(raf);
+    }
+
+    layout();
+    pre.classList.add('hidden');
+    canvas.classList.remove('hidden');
+    frame(1.7); // paint immediately (also the only frame under reduced motion)
+
+    if (!reduced) {
+      const io = new IntersectionObserver((entries) => {
+        entries[0].isIntersecting && !document.hidden ? start() : stop();
+      });
+      io.observe(canvas);
+      document.addEventListener('visibilitychange', () => {
+        document.hidden ? stop() : start();
+      });
+      window.addEventListener('pointermove', (e) => {
+        const r = canvas.getBoundingClientRect();
+        mouse.tx = ((e.clientX - r.left) / r.width) * cols;
+        mouse.ty = ((e.clientY - r.top) / r.height) * rows;
+      }, { passive: true });
+      window.addEventListener('pointerleave', () => { mouse.tx = -1e4; mouse.ty = -1e4; });
+    }
+
+    let rt: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => { layout(); frame(1.7); }, 150);
+    });
+  }
+</script>
